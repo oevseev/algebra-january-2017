@@ -1,0 +1,11 @@
+\section{Матрица перехода между ОНБ в ЕП}
+
+\begin{thm*}
+    $L$ --- ЕП. Пусть $B = \family{u_i}{i=1}{n}$ и $B' = \family{u'_i}{i=1}{n}$ --- ОНБ, причем $B \stackrel{C}{\leadsto} B'$. Тогда $C = (c_{ij})$ ортогональна.
+\end{thm*}
+
+\begin{proof}
+    $$\delta_{ij} = (u'_i, u'_j) = \left(\sum_{k=1}^n c_{ki} u_k, \sum_{t=1}^n c_{tj} u_t\right) = \sum_{k,t=1}^n c_{ki} c_{tj} \underbrace{(u_k, u_t)}_{\delta_{kt}} = \sum_{s=1}^n \underbrace{c_{si}}_{C^T[i, s]} \cdot \underbrace{c_{sj}}_{C[s, j]} = C^T C[i, j]$$
+    
+    Так как $C^T C = E_n$, то $C$ --- ортогональная матрица.
+\end{proof}

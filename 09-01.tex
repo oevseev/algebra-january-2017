@@ -1,0 +1,32 @@
+\section{Определение евклидова пространства. Неравенства Коши и треугольника в ЕП}
+
+\begin{defn}
+    \textit{Евклидово пространство} --- пара $(\lsub{\mathbb{R}}{L}, (-, -))$, где $\lsub{\mathbb{R}}{L}$ --- \textbf{конечномерное} пространство, $(-, -) \colon L^2 \to \mathbb{R}$ --- положительно определенная билинейная форма.
+    
+    Величина $||u|| \coloneqq \sqrt{(u, u)}$ называется \textit{длиной (нормой) вектора $u$}.
+    
+    Величина $\rho(u, v) = ||u - v||$ называется \textit{расстоянием} между $u$ и $v$.
+\end{defn}
+
+\begin{thm*}
+    $L$ --- ЕП. Пусть $u, v \in L$. Тогда:
+    \begin{enumerate}
+        \item $|(u, v)| \le ||u|| \cdot ||v||$
+        \item $||u + v|| \le ||u|| + ||v||$
+        \item $\rho(u, v) \le \rho(u, w) + \rho(w, v)\ \forall w \in L$
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        Пусть $t \in \mathbb{R}$. Считаем, что $u \neq \nil \neq v$. Тогда $(u + tv, u + tv) = (u, u) + 2(u, tv) + (tv, tv) = {||u||}^2 + 2t(u, v) + t^2{||v||}^2 > 0\ \forall t$, откуда $D = 4(u, v)^2 - 4{||u||}^2{||v||}^2 \le 0$ и $|(u, v)| \le ||u|| \cdot ||v||$.
+    \end{proofpart}
+
+    \begin{proofpart}
+        ${||u + v||}^2 = (u + v, u + v) = {||u||}^2 + 2(u, v) + {||v||}^2 \le {||u||}^2 + 2||u|| \cdot ||v|| + {||v||}^2 = (||u|| + ||v||)^2$
+    \end{proofpart}
+
+    \begin{proofpart}
+        $\rho(u, v) = ||u - v|| = ||(u - w) + (w - v)|| \le ||u - w|| + ||w - v|| = \rho(u, w) + \rho(w, v)$
+    \end{proofpart}
+\end{proof}

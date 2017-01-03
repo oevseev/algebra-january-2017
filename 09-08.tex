@@ -1,0 +1,58 @@
+\section{Дуальное отображение. Свойства операции перехода к дуальному отображению. Второе пространство функционалов, его связь с исходным пространством}
+
+\begin{defn}
+    Пусть $f \colon \lsub{K}{U} \to \lsub{K}{V}$ --- $K$-линейное отображение. Построим отображение $f^* \colon V^* \to U^*$ следующим образом:
+    
+    \begin{diagram}
+        U &                       & \rTo^f &            & V \\
+          & \rdDashto_{f^*(\phi)} &        & \ldTo_\phi &   \\
+          &                       & K      &            &   
+    \end{diagram}
+
+    То есть, для $\phi \in V^*$ положим $f^*(\phi) \coloneqq \phi \circ f \in U^*$. Очевидно, что оно $K$-линейно. $f^*$ называется \textit{дуальным к $f$} отображением.
+\end{defn}
+
+\begin{rem}
+    Дуальное отображение обладает следующими свойствами:
+    \begin{enumerate}
+        \item $(f_1 + f_2)^*(\phi) = \phi \circ (f_1 + f_2) = \phi \circ f_1 + \phi \circ f_2 = f_1^*(\phi) + f_2^*(\phi)$
+        \item $(gf)^*(\phi) = \phi (gf) = (\phi g)f = f^*(\phi g) = f^* (g^*(\phi)) = (f^* \circ g^*)(\phi)$
+    \end{enumerate}
+\end{rem}
+
+\begin{defn}
+    $\lsub{K}{V}$ --- линейное пространство. Построим отображение $\delta_V \colon V \to V^{**}$ так, чтобы $\forall \phi \in V^*\ (\delta_V(v))(\phi) = \phi(v)$ ($\delta_V(v) = \bullet(v)$).
+\end{defn}
+
+\begin{thm*}
+    $\lsub{K}{U}$, $\lsub{K}{V}$ --- линейные пространства.
+    \begin{enumerate}
+        \item $\delta_V$ --- изоморфизм.
+        \item Пусть $f \colon U \to V$ --- $K$-линейное отображение, тогда $\delta_V \circ f = f^{**} \circ \delta_U$.
+    \end{enumerate}
+\end{thm*}
+
+\begin{rem}
+    $\delta$ можно рассматривать как функтор в терминах теории категорий (следующая диаграмма коммутирует):
+    
+    \begin{diagram}
+        U                    & \rTo^f        & V                    \\
+        \dTo^{\delta_U}_\sim &               & \dTo_{\delta_V}^\sim \\
+        U^{**}               & \rTo^{f^{**}} & V^{**}
+    \end{diagram}
+\end{rem}
+
+\begin{proof}
+    \begin{proofpart}
+        Докажем, что $\delta_V$ мономорфно. Пусть $v \in V \setminus \nilset$ и $\delta_V(v) = 0$. Тогда $\forall \phi \in V^*\ \phi(v) = 0$. Построим базис $\{v, \dots\}$ и двойственный к нему $\{\phi_1, \dots\}$. Отсюда по определению $\phi_1(v) = 1$. Полученное противоречие доказывает мономорфность $\delta_V$. Так как $\delta_V$ --- мономорфизм пространств одинаковой размерности, то $\delta_V$ --- изоморфизм.
+    \end{proofpart}
+
+    \begin{proofpart}
+        \begin{align*}
+            ((\delta_V \circ f)(u))(\phi) &= (\delta_V(f(u)))(\phi) = \phi(f(u)) = (\phi \circ f)(u) = (f^*(\phi))(u) = (\delta_U(u))(f^*(\phi)) \\
+            &= (\delta_U(u) \circ f^*)(\phi) = (f^{**}(\delta_U(u)))(\phi) = (f^{**} \circ \delta_U(u))(\phi)
+        \end{align*}
+        
+        Так, $\delta_V \circ f = f^{**} \circ \delta_U$.
+    \end{proofpart}
+\end{proof}

@@ -1,0 +1,11 @@
+# macOS garbage
+.DS_Store
+
+# PDFLaTeX intermediate files
+*.aux
+*.log
+*.synctex.gz
+*.pdf
+
+# External packages
+diagrams.sty

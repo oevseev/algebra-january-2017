@@ -1,0 +1,18 @@
+\section{Теорема о существовании ОНБ в ЕП}
+
+\begin{thm*}
+    Пусть $L$ --- евклидово пространство. Тогда в нем существует ортонормированный базис $\family{v_i}{i=1}{n}$.
+\end{thm*}
+
+\begin{proof}
+    Пусть $\family{u_i}{i=1}{n}$ --- \textbf{произвольный} базис $L$. Произведем индукцию по $n$.
+    \smallskip
+    
+    \underline{$n = 1$}. $\{v_1 = \frac{u_1}{||u_1||}\}$ --- ОН-базис.
+    
+    \underline{$n-1 \rightarrow n$}. Пусть $U \coloneqq \gen{}{u_1, \ldots, u_{n-1}} \le L$ --- $(n-1)$-мерное подпространство $L$. По индукционному предположению в нем можно выбрать ОН-базис $\family{v_i}{i=1}{n-1}$.
+    
+    Пусть $v \coloneqq u_n - \sum_{i=1}^{n-1} (u_n, v_i) v_i$. Тогда $\forall k = 1..n-1$ имеем:
+    $$(v, v_k) = \left(u_n - \sum_{i=1}^{n-1} (u_n, v_i)v_i, v_k\right) = (u_n, v_k) - \sum_{i=1}^{n-1} (u_n, v_i)(v_i, v_k) \stackrel{\text{ОН-ть}}{=} (u_n, v_k) - (u_n, v_k) \underbrace{(v_k, v_k)}_{=1} = 0$$
+    Можем дополнить ОН-базис $U$ до ОН-базиса $V$, положив $v_n = \frac{v}{||v||}$.
+\end{proof}

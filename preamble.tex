@@ -1,0 +1,103 @@
+% LaTeX preamble for algebra named after Generalov A.I.
+% (c) 2016, 2017 Oleg Evseev. For in-house use only.
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{leftidx}
+\usepackage{mathtools}
+\usepackage{tikz}
+
+% For use with Apple Watch
+\usepackage{xcolor}
+\usepackage{pagecolor}
+
+% diagrams.sty can be found at http://www.paultaylor.eu/diagrams/
+\usepackage[small,nohug,heads=vee]{diagrams}
+\diagramstyle[labelstyle=\scriptstyle]
+
+% Structural defines
+
+\newtheorem{thm}{Теорема}
+\newtheorem*{thm*}{Теорема}
+\newtheorem{prop}[thm]{Предложение} 
+\newtheorem*{prop*}{Предложение}
+\newtheorem{cor}{Следствие}
+\newtheorem*{cor*}{Следствие}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Определение}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Замечание}
+\newtheorem*{expl}{Пример}
+
+\newtheoremstyle{lemma}{}{}{}{}{\bfseries}{.}{.5em}{}
+\theoremstyle{lemma}
+\newtheorem{lem}{Лемма}
+\newtheorem*{lem*}{Лемма}
+
+\newtheoremstyle{part}{}{}{}{}{\bfseries}{)}{.5em}{}
+\theoremstyle{part}
+\newtheorem{proofpart}{}
+
+\makeatletter
+\@addtoreset{equation}{section}
+\@addtoreset{thm}{subsection}
+\@addtoreset{cor}{thm}
+\@addtoreset{proofpart}{thm}
+\@addtoreset{proofpart}{lem}
+\makeatother
+
+\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+\renewcommand*{\theproofpart}{\asbuk{proofpart}}
+\renewcommand*{\thelem}{\Asbuk{lem}}
+
+\renewcommand{\theenumi}{(\asbuk{enumi})}
+\renewcommand{\labelenumi}{\asbuk{enumi})}
+
+\AddEnumerateCounter{\Asbuk}{\@Asbuk}{\CYRM}
+\AddEnumerateCounter{\asbuk}{\@asbuk}{\cyrm}
+
+% Some useful declarations
+
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rk}{rk}
+
+\renewcommand{\hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+
+\newcommand\lsub[2]{\leftidx{_{#1}}{#2}}
+\newcommand\family[3]{\left\{#1\right\}_{#2}^{#3}}
+\newcommand\gen[2]{\lsub{#1}{\left\langle #2 \right\rangle}}
+
+\newcommand\divby{\mathrel{\vdots}}
+\newcommand\ndivby{\mathrel{\not\vdots}}
+
+\newcommand\nil{\mathbf{0}}
+\newcommand\nilset{\{\nil\}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+    
+% Thanks to http://texblog.net/latex-archive/maths/amsmath-matrix/
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+    \hskip -\arraycolsep
+    \let\@ifnextchar\new@ifnextchar
+    \array{#1}}
+\makeatother
+
+% Part names on separate pages, found here:
+% https://tex.stackexchange.com/questions/64215/make-part-in-scrartcl
+\renewcommand\partheadstartvskip{\clearpage\null\vfil}
+\renewcommand\partheadmidvskip{\par\nobreak\vskip 20pt\thispagestyle{empty}}
+\renewcommand\partheadendvskip{\vfil\clearpage}
+\renewcommand\raggedpart{\centering}

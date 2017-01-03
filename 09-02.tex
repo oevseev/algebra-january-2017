@@ -1,0 +1,23 @@
+\section{Матрица Грама набора векторов. Связь с линейной независимостью векторов}
+
+\begin{defn}
+    Пусть $M = \family{v_i}{i=1}{m}$ --- семейство векторов ЕП $L$. Матрица $G_M = ((v_i, v_j))_{ij}$ (где $i, j \in 1..m$) называется \textit{матрицей Грама} семейства $M$.
+\end{defn}
+
+\begin{rem}
+    Ясно, что $G_M$ симметрична. Если $M = \family{e_i}{i=1}{m}$ --- базис, то $G_M = (g_{ij})$ является матрицей скалярного произведения (то есть, для $u, v \in L$ скалярное произведение выражается в виде $(u, v) = U^TG_MV$ в силу того, что $(u, v) = \sum_{i, j = 1}^m g_{ij} u_i v_j$).
+\end{rem}
+
+\begin{thm*}
+    $L$ --- ЕП, $M = \family{v_i}{i=1}{m}$ --- семейство векторов $L$. $M$ линейно независимо $\Leftrightarrow$ матрица Грама $G_M$ обратима.
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        Предположим, что $G_M$ необратима. Тогда уравнение $G_M X = \nil$ имеет ненулевое решение $X = (x_1, \ldots, x_m)^T \neq \nil$. Положим $u \coloneqq \sum_{i=1}^m x_i v_i \neq \nil$ (по линейной независимости) $\Rightarrow (u, u) = X^T G_M X = X^T \cdot \nil = \nil \Rightarrow u = \nil$. Полученное противоречие доказывает обратимость $G_M$.
+    \end{proofpart}
+
+    \begin{proofpart}{($\Leftarrow$)}
+        Предположим, что $\sum_{i=1}^m x_i v_i = \nil$. Домножив скалярно обе части на вектор $v_j$, получим $\sum_{i=1}^m x_i g_{ij} = 0\ \forall j$. Отсюда $X^T G_M = \nil$. После домножения справа на $G_M^{-1}$ получаем $X^T = \nil \Rightarrow \forall i\ x_i = 0$. Отсюда $M$ линейно независимо.
+    \end{proofpart}
+\end{proof}
