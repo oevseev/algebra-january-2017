@@ -1,0 +1,35 @@
+\section{Проекторы в линейных пространствах}
+
+\begin{defn}
+    $\lsub{K}{V}$ --- линейное пространство. Эндоморфизм $p \in \End \lsub{K}{V}$ называется \textit{проектором (оператором проектирования)}, если $p^2 = p$.
+\end{defn}
+
+\begin{exmpl}
+    $$\begin{array}{ c c c c c }
+        \lsub{K}{V} & = & U     & \oplus & U'    \\
+        \inup       &   & \inup &        & \inup \\
+        v           & = & u     & +      & u'
+    \end{array}$$
+    $p_U(v) \coloneqq u$ --- проектор, называемый \textit{проектором на $U$ параллельно $U'$}.
+\end{exmpl}
+
+\begin{thm*}
+    Пусть $p \in \End \lsub{K}{V}$ --- проектор. Тогда:
+    \begin{enumerate}
+        \item $V = \ker p \oplus \im p$.
+        \item $p$ совпадает с проектором на $\im p$ параллельно $\ker p$.
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        Пусть $v \in V$. Тогда $p(v) = p^2(v)$. Положим $y \coloneqq v - p(v)$. Ясно, что $p(y) = \nil$. Так:
+        \begin{equation}\label{09-10:star}\tag{$*$}
+            v = p(v) + y, \qquad p(v) \in \im p,\ y \in \ker p
+        \end{equation}
+        откуда $V = \im p + \ker p$. Пусть $x \in \ker p \cap \im p$, тогда $\exists z \in V \colon x = p(z)$ и $p(x) = \nil$. Отсюда $\nil = p(x) = p^2(z) = p(z) = x$. Следовательно, $\ker p \cap \im p = \nilset$ и соответствующая сумма прямая.
+    \end{proofpart}
+    \begin{proofpart}
+        Явным образом следует из \eqref{09-10:star}.
+    \end{proofpart}
+\end{proof}
