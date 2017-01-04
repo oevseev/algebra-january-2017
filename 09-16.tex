@@ -1,7 +1,7 @@
 \section{Линейные функционалы на УП}
 
 \begin{defn}
-    Пусть $\lsub{\mathbb{C}}{L}$ --- УП, $v \in L$. Отображение $\phi_v \colon L \to \mathbb{C}$, т.ч. для $u \in L$ $\phi_v(u) = (u, v)$ назовем \textit{функционалом скалярного умножения на $v$}. Ясно, что $\phi_v \in L^*$.
+    Пусть $\lsub{\mathbb{C}}{L}$ --- УП, $v \in L$. Отображение $\varphi_v \colon L \to \mathbb{C}$, т.ч. для $u \in L$ $\varphi_v(u) = (u, v)$ назовем \textit{функционалом скалярного умножения на $v$}. Ясно, что $\varphi_v \in L^*$.
 \end{defn}
 
 \begin{defn}
@@ -9,7 +9,7 @@
 \end{defn}
 
 \begin{thm*}
-    Пусть $\lsub{\mathbb{C}}{L}$ --- УП. Рассмотрим отображение $f \colon \bar{L} \to L^*$, т.ч. $f(v) = \phi_v$. Справедливы следующие утверждения:
+    Пусть $\lsub{\mathbb{C}}{L}$ --- УП. Рассмотрим отображение $f \colon \bar{L} \to L^*$, т.ч. $f(v) = \varphi_v$. Справедливы следующие утверждения:
     \begin{enumerate}
         \item $f$ --- изоморфизм.
         \item Если $B$ --- ОН-базис в $\lsub{\mathbb{C}}{L}$, то $f(B)$ --- дуальный к нему базис в $L^*$.
@@ -23,6 +23,6 @@
         Отсюда $f$ --- $\mathbb{C}$-линейное отображение. Предположим, что $f(v) = 0$, то есть $\forall u \in L\ (u, v) = 0$, тогда $(v, v) = 0 \leadsto v = \nil \leadsto \ker f = \nilset$ и $f$ --- мономорфизм. Но $\dim \lsub{\mathbb{C}}{\bar{L}} = \dim \lsub{\mathbb{C}}{L^*}$, и $f$ --- изоморфизм.
     \end{proofpart}
     \begin{proofpart}
-        Пусть $B = \family{e_i}{i=1}{n}$. Тогда $f(B) = \family{\phi_{e_j} = (\bullet, e_j)}{j=1}{n}$. Но $\phi_{e_j}(e_i) = (e_i, e_j) = \delta_{ij}$, откуда $f(B)$ --- дуальный к $B$ базис $L^*$.
+        Пусть $B = \family{e_i}{i=1}{n}$. Тогда $f(B) = \family{\varphi_{e_j} = (\bullet, e_j)}{j=1}{n}$. Но $\varphi_{e_j}(e_i) = (e_i, e_j) = \delta_{ij}$, откуда $f(B)$ --- дуальный к $B$ базис $L^*$.
     \end{proofpart}
 \end{proof}

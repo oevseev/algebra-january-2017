@@ -4,24 +4,24 @@
     Пусть $f \colon \lsub{K}{U} \to \lsub{K}{V}$ --- $K$-линейное отображение. Построим $f^* \colon V^* \to U^*$ следующим образом:
     
     \begin{diagram}
-        U &                       & \rTo^f &            & V \\
-          & \rdDashto_{f^*(\phi)} &        & \ldTo_\phi &   \\
-          &                       & K      &            &   
+        U &                          & \rTo^f &               & V \\
+          & \rdDashto_{f^*(\varphi)} &        & \ldTo_\varphi &   \\
+          &                          & K      &               &   
     \end{diagram}
 
-    То есть, для $\phi \in V^*$ положим $f^*(\phi) \coloneqq \phi \circ f \in U^*$. Очевидно, что оно $K$-линейно. $f^*$ называется \textit{дуальным к $f$} отображением.
+    То есть, для $\varphi \in V^*$ положим $f^*(\varphi) \coloneqq \varphi \circ f \in U^*$. Очевидно, что оно $K$-линейно. $f^*$ называется \textit{дуальным к $f$} отображением.
 \end{defn}
 
 \begin{rem}
     Дуальное отображение обладает следующими свойствами:
     \begin{enumerate}
-        \item $(f_1 + f_2)^*(\phi) = \phi \circ (f_1 + f_2) = \phi \circ f_1 + \phi \circ f_2 = f_1^*(\phi) + f_2^*(\phi)$
-        \item $(gf)^*(\phi) = \phi (gf) = (\phi g)f = f^*(\phi g) = f^* (g^*(\phi)) = (f^* \circ g^*)(\phi)$
+        \item $(f_1 + f_2)^*(\varphi) = \varphi \circ (f_1 + f_2) = \varphi \circ f_1 + \varphi \circ f_2 = f_1^*(\varphi) + f_2^*(\varphi)$
+        \item $(gf)^*(\varphi) = \varphi (gf) = (\varphi g)f = f^*(\varphi g) = f^* (g^*(\varphi)) = (f^* \circ g^*)(\varphi)$
     \end{enumerate}
 \end{rem}
 
 \begin{defn}
-    $\lsub{K}{V}$ --- линейное пространство. Построим отображение $\delta_V \colon V \to V^{**}$ так, чтобы $\forall \phi \in V^*\ (\delta_V(v))(\phi) = \phi(v)$ ($\delta_V(v) = \bullet(v)$).
+    $\lsub{K}{V}$ --- линейное пространство. Построим отображение $\delta_V \colon V \to V^{**}$ так, чтобы $\forall \varphi \in V^*\ (\delta_V(v))(\varphi) = \varphi(v)$ ($\delta_V(v) = \bullet(v)$).
 \end{defn}
 
 \begin{thm*}
@@ -44,13 +44,13 @@
 
 \begin{proof}
     \begin{proofpart}
-        Докажем, что $\delta_V$ мономорфно. Пусть $v \in V \setminus \nilset$ и $\delta_V(v) = 0$. Тогда $\forall \phi \in V^*\ \phi(v) = 0$. Построим базис $\{v, \dots\}$ и двойственный к нему $\{\phi_1, \dots\}$. Отсюда по определению $\phi_1(v) = 1$. Полученное противоречие доказывает мономорфность $\delta_V$. Так как $\delta_V$ --- мономорфизм пространств одинаковой размерности, то $\delta_V$ --- изоморфизм.
+        Докажем, что $\delta_V$ мономорфно. Пусть $v \in V \setminus \nilset$ и $\delta_V(v) = 0$. Тогда $\forall \varphi \in V^*\ \varphi(v) = 0$. Построим базис $\{v, \dots\}$ и двойственный к нему $\{\varphi_1, \dots\}$. Отсюда по определению $\varphi_1(v) = 1$. Полученное противоречие доказывает мономорфность $\delta_V$. Так как $\delta_V$ --- мономорфизм пространств одинаковой размерности, то $\delta_V$ --- изоморфизм.
     \end{proofpart}
 
     \begin{proofpart}
         \begin{align*}
-            ((\delta_V \circ f)(u))(\phi) &= (\delta_V(f(u)))(\phi) = \phi(f(u)) = (\phi \circ f)(u) = (f^*(\phi))(u) = (\delta_U(u))(f^*(\phi)) \\
-            &= (\delta_U(u) \circ f^*)(\phi) = (f^{**}(\delta_U(u)))(\phi) = (f^{**} \circ \delta_U(u))(\phi)
+            ((\delta_V \circ f)(u))(\varphi) &= (\delta_V(f(u)))(\varphi) = \varphi(f(u)) = (\varphi \circ f)(u) = (f^*(\varphi))(u) = (\delta_U(u))(f^*(\varphi)) \\
+            &= (\delta_U(u) \circ f^*)(\varphi) = (f^{**}(\delta_U(u)))(\varphi) = (f^{**} \circ \delta_U(u))(\varphi)
         \end{align*}
         
         Так, $\delta_V \circ f = f^{**} \circ \delta_U$.

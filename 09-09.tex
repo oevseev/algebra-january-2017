@@ -1,11 +1,11 @@
 \section{Линейные функционалы на ЕП}
 
 \begin{defn}
-    $L$ --- ЕП. Пусть $v \in L$. Отображение $\phi_v \colon L \to \mathbb{R}$, т.ч. $\phi_v(u) = (u, v)$ назовем \textit{функционалом скалярного умножения} на $v$.
+    $L$ --- ЕП. Пусть $v \in L$. Отображение $\varphi_v \colon L \to \mathbb{R}$, т.ч. $\varphi_v(u) = (u, v)$ назовем \textit{функционалом скалярного умножения} на $v$.
 \end{defn}
 
 \begin{thm*}
-    $L$ --- ЕП. Рассмотрим $f \colon L \to L^*$, т.ч. $f(v) = \phi_v$. Справедливо следующее:
+    $L$ --- ЕП. Рассмотрим $f \colon L \to L^*$, т.ч. $f(v) = \varphi_v$. Справедливо следующее:
     \begin{enumerate}
         \item $f$ --- изоморфизм.
         \item Если $B$ --- ОН-базис $\lsub{\mathbb{R}}{V}$, то $f(B)$ --- дуальный к нему в $\lsub{\mathbb{R}}{L^*}$.
@@ -17,10 +17,10 @@
         Отображение $f$ $K$-линейно за счет линейности скалярного произведения по первому аргументу. Докажем мономорфность $f$. Пусть $f(v) = 0$ для $v \in L$. Тогда $(\bullet, v) \equiv 0 \leadsto (v, v) = 0 \leadsto v = \nil$. Так как $\dim \lsub{\mathbb{R}}{L^*} = \dim \lsub{\mathbb{R}}{L}$, то $f$ --- мономорфизм $K$-линейных пространств одинаковой размерности, и, как следствие, является изоморфизмом.
     \end{proofpart}
     \begin{proofpart}
-        Пусть $B = \family{e_i}{i=1}{n}$. Тогда $f(B) = \family{\phi_j = (\bullet, e_j)}{j=1}{n}$. В частности, $\phi_j(e_i) = (e_i, e_j) = \delta_{ij}$, откуда $f(B)$ --- дуальный к $B$ базис $L^*$.
+        Пусть $B = \family{e_i}{i=1}{n}$. Тогда $f(B) = \family{\varphi_j = (\bullet, e_j)}{j=1}{n}$. В частности, $\varphi_j(e_i) = (e_i, e_j) = \delta_{ij}$, откуда $f(B)$ --- дуальный к $B$ базис $L^*$.
     \end{proofpart}
 \end{proof}
 
 \begin{cor*}
-    $L$ --- ЕП. Пусть $\phi \colon \lsub{\mathbb{R}}{L} \to \mathbb{R} \in L^*$, тогда $\exists! v \in L \colon \phi(u) = (u, v)\ \forall u \in L$.
+    $L$ --- ЕП. Пусть $\varphi \colon \lsub{\mathbb{R}}{L} \to \mathbb{R} \in L^*$, тогда $\exists! v \in L \colon \varphi(u) = (u, v)\ \forall u \in L$.
 \end{cor*}
