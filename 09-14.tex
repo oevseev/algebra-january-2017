@@ -1,0 +1,29 @@
+\section{Определение унитарного пространства. Неравенства Коши и треугольника в УП}
+
+\begin{defn}
+    \textit{Унитарным пространством} называется пара $(\lsub{\mathbb{C}}{L}, F)$, где $\lsub{\mathbb{C}}{L}$ --- \textbf{конечномерное} $\mathbb{C}$-линейное пространство, а $F \colon L^2 \to \mathbb{R}$ --- положительно определенная \textbf{эрмитова} форма (\textit{скалярное произведение}).
+    Аналогично ЕП вводятся понятия \textit{нормы} вектора и \textit{расстояния} между двумя векторами.
+\end{defn}
+
+\begin{thm*}
+    $L$ --- УП. Пусть $u, v \in L$. Тогда:
+    \begin{enumerate}
+        \item $|(u, v)| \le ||u|| \cdot ||v||$
+        \item $||u + v|| \le ||u|| + ||v||$
+        \item $\rho(u, v) \le \rho(u, w) + \rho(w, v)\ \forall w \in L$
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        Пусть $t \in \mathbb{C}$. Считаем, что $v \neq \nil$. Тогда $0 \le (u + tv, u + tv) = \norm{u}^2 + t(v, u) + \bar{t}(u, v) + {|t|}^2\norm{v}^2$. Положим $t = \lambda(u, v),\ \lambda \in \mathbb{R}$. Тогда $0 \le \norm{u}^2 + 2\lambda{|(u, v)|}^2 + \lambda^2 {|(u, v)|}^2 \norm{v}^2$. В таком случае $D = 4{|(u, v)|}^4 - 4{|(u, v)|}^2\norm{u}^2\norm{v}^2 \le 0$, откуда $|(u, v)| \le \norm{u} \cdot \norm{v}$
+    \end{proofpart}
+    
+    \begin{proofpart}
+        Аналогично доказательству для ЕП.
+    \end{proofpart}
+    
+    \begin{proofpart}
+        Аналогично доказательству для ЕП.
+    \end{proofpart}
+\end{proof}

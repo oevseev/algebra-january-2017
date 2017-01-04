@@ -1,0 +1,23 @@
+\section{Существование ОНБ в УП. Матрица перехода между ОНБ в УП}
+
+\begin{thm}
+    Пусть $\lsub{\mathbb{C}}{L}$ --- УП, тогда существует ОН-базис $\family{v_i}{i=1}{n}$ в $\lsub{\mathbb{C}}{L}$.
+\end{thm}
+
+\begin{proof}
+    Аналогично случаю ЕП (процесс Грама-Шмидта).
+\end{proof}
+
+\begin{defn}
+    Матрица $C \in M_n(\mathbb{C})$ называется \textit{унитарной}, если $C^{-1} = \bar{C}^T$ ($\eqqcolon C^*$ --- \textit{эрмитово сопряженная матрица}).
+\end{defn}
+
+\begin{thm*}
+    Пусть $\lsub{\mathbb{C}}{L}$ --- УП, $B$ и $B'$ --- ОНБ в $\lsub{\mathbb{C}}{L}$, причем $B \stackrel{C}{\leadsto} B'$. Тогда $C$ --- унитарная матрица.
+\end{thm*}
+
+\begin{proof}
+    Пусть $B = \family{u_i}{i=1}{n}$ и $B' = \family{u'_i}{i=1}{n}$, $C = (c_{ij})$. Тогда:
+    $$\delta_{ij} = (u'_i, u'_j) = \left(\sum_{k=1}^n c_{ki} u_i,\ \sum_{t=1}^n c_{tj} u_j \right) = \sum_{k,t=1}^n c_{ki} \overline{c_{tj}} \underbrace{(u_i, u_j)}_{\delta_{ij}} = \sum_{s=1}^n \underbrace{c_{si}}_{C[s, i]} \cdot \underbrace{\overline{c_{sj}}}_{\bar{C}^T[j, s]} = C^*C[j, i]$$
+    Так, $C^*C = E_n$, откуда $C$ унитарна.
+\end{proof}

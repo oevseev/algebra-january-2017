@@ -8,9 +8,9 @@
     $L$ --- ЕП, $V \le \lsub{\mathbb{R}}{L}$, $v \in L$. Величина $\rho(v, V) \coloneqq \inf \left\{ \rho(v, x) \mid x \in V \right\}$ называется \textit{расстоянием между $v$ и $V$}.
 \end{defn}
 
-\begin{thm}
+\begin{thm*}
     $L$ --- ЕП, $V \le \lsub{\mathbb{R}}{L}$, $v \in L$. Пусть $p$ --- оператор ортогонального проектирования на $V$, тогда $\rho(v, V) = \norm{v^\perp} = \norm{v - p(v)}$.
-\end{thm}
+\end{thm*}
 
 \begin{proof}
     Положим $v_{\text{pr}} \coloneqq p(v) \in V$. Очевидно, что $\rho(v, V) \le \norm{v^\perp}$ (т.к. $\rho(v, v_\text{pr}) = \norm{v - v_pr} = \norm{v^\perp}$). В то же время, полагая $u \in V$, имеем $\rho^2(v, u) = \norm{v - u}^2 = \norm{v^\perp + (v_\text{pr} - u)}^2 = \norm{v^\perp}^2 + \norm{v_\text{pr} - u}^2 \ge \norm{v^\perp}^2$ (в силу ортогональности векторов суммы), откуда $\rho(v, V) \ge \norm{v^\perp}$. Так, $\rho(v, V) = \norm{v^\perp}$.
