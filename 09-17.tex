@@ -1,0 +1,133 @@
+\section{Сопряженные операторы в ЕП, их свойства}
+
+\begin{defn}
+    Пусть $\lsub{\mathbb{R}}{L}$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Положим $f \colon L \to L^*$ --- изоморфизм, т.ч. $v \mapsto \varphi_v = (\bullet, v)$; также положим $a^* \colon L^* \to L^*$ --- дуальное к $a$ отображение ($a^*(\varphi) = \varphi \circ a$). Оператор $\hat{a} \colon f^{-1} \circ a^* \circ f \colon L \to L$ назовем \textit{сопряженным} к $a$.
+\end{defn}
+
+\begin{rem}
+    Определение наглядно описывается следующей диаграммой:
+    \begin{diagram}
+        L      & \rTo^{\hat{a}} & L             \\
+        \dTo^f &                & \uTo_{f^{-1}} \\
+        L^*    & \rTo^{a^*}     & L^*
+    \end{diagram}
+\end{rem}
+
+\begin{thm}
+    $L$ --- ЕП. Пусть $a, b \in \End \lsub{\mathbb{R}}{L}$. Тогда:
+    \begin{enumerate}
+        \item $\widehat{a + b} = \hat{a} + \hat{b}$.
+        \item $\forall \alpha \in \mathbb{R}\ \widehat{\alpha a} = \alpha \hat{a}$.
+        \item $\widehat{ab} = \hat{b} \hat{a}$.
+        \item Если $a$ обратим, то $\hat{a}$ обратим и $\hat{a}^{-1} = \widehat{a^{-1}}$.
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+    \begin{proofpart}
+        $$\widehat{a + b} = f \circ (a + b)^* \circ f^{-1} = f \circ (a^* + b^*) \circ f^{-1} = f \circ a^* \circ f^{-1} + f \circ b^* \circ f^{-1} = \hat{a} + \hat{b}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        $$\widehat{\alpha a} = f \circ (\alpha a)^* \circ f^{-1} = \alpha f \circ a^* \circ f^{-1} = \alpha \hat{a}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        $$\widehat{ab} = f \circ (ab)^* \circ f^{-1} = f \circ (b^* a^*) \circ f^{-1} = (f \circ b^* \circ f^{-1}) \circ (f \circ a^* \circ f^{-1}) = \hat{b} \hat{a}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        Ясно, что $(\id_V)^* = \bullet \circ \id_V = \bullet = \id_{V^*}$. Тогда $\widehat{\id_V} = \id_V$, откуда $\id_V = \widehat{a \circ a^{-1}} = \widehat{a^{-1}} \circ \hat{a}$.
+    \end{proofpart}
+\end{proof}
+
+\begin{thm}
+    Пусть $L$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Тогда $\forall u, v \in L\ (a(u), v) = (u, \hat{a}(v))$.
+\end{thm}
+
+\begin{proof}
+    Имеем $f \circ \hat{a} = a^* \circ f$, откуда $\forall v \in L\ f(\hat{a}(v)) = a^*(f(v))$. Но $f(\hat{a}(v)) = (\bullet, \hat{a}(v))$, $a^*(f(v)) = (a(\bullet), v)$, следовательно $\forall u \in L\ (u, \hat{a}(v)) = (a(u), v)$.
+\end{proof}
+
+\begin{cor}
+    Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item $\hat{\hat{a}} = a$.
+        \item Из обратимости $\hat{a}$ следует обратимость $a$.
+    \end{enumerate}
+\end{cor}
+
+\begin{proof}
+    \begin{proofpart}
+        $(a(u), v) = (u, \hat{a}(v)) = (\hat{\hat{a}}(u), v) \leadsto \forall v \in L\ (a(u) - \hat{\hat{a}}(u), v) = 0 \leadsto a(u) = \hat{\hat{a}}(u)\ \forall u \in L$.
+    \end{proofpart}
+
+    \begin{proofpart}
+        Из обратимости $\hat{a}$ следует обратимость $\hat{\hat{a}} = a$.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    $L$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Пусть $V \le \lsub{\mathbb{R}}{L}$, тогда $V\ a\text{-инвариантно} \Leftrightarrow V^\perp\ \hat{a}\text{-инвариантно}$.
+\end{cor}
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        Пусть $x \in V, y \in V^\perp$. Тогда $0 = (a(x), y) = (x, \hat{a}(y))$, откуда $\hat{a}(y) \in V^\perp$.
+    \end{proofpart}
+
+    \begin{proofpart}{($\Leftarrow$)}
+        Следует из применения ($\Rightarrow$) к $\hat{a}$ и $V^\perp$, так как $\hat{\hat{a}} = a$ и $V^{\perp\perp} = V$.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item $\ker \hat{a} = (\im a)^\perp$.
+        \item $\im \hat{a} = (\ker a)^\perp$.
+    \end{enumerate}
+\end{cor}
+
+\begin{proof}
+    \begin{proofpart}
+        $$x \in \ker \hat{a} \Leftrightarrow \forall u \in L\ (u, \hat{a}(x)) = 0 \Leftrightarrow x \in (\im a)^\perp$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        $$\ker a = \ker \hat{\hat{a}} = (\im \hat{a})^\perp \Rightarrow \im \hat{a} = (\ker a)^\perp$$
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item $\dim \lsub{\mathbb{R}}{\ker a} = \dim \lsub{\mathbb{R}}{\ker \hat{a}}$.
+        \item $\dim \lsub{\mathbb{R}}{\im a} = \dim \lsub{\mathbb{R}}{\im \hat{a}}$.
+    \end{enumerate}
+\end{cor}
+
+\begin{proof}
+    Из предыдущего следствия имеем: $$L = \ker \hat{a} \oplus \im a = \ker a \oplus \im \hat{a}$$
+    откуда $$\begin{cases}
+        \dim \lsub{\mathbb{R}}{\ker \hat{a}} + \dim \lsub{\mathbb{R}}{\im a} = \dim \lsub{\mathbb{R}}{L} \\
+        \dim \lsub{\mathbb{R}}{\ker a} + \dim \lsub{\mathbb{R}}{\im \hat{a}} = \dim \lsub{\mathbb{R}}{L} \\
+        \dim \lsub{\mathbb{R}}{\ker a} + \dim \lsub{\mathbb{R}}{\im a} = \dim \lsub{\mathbb{R}}{L}
+    \end{cases}$$
+    и соответствующие равенства очевидны.
+\end{proof}
+
+\begin{thm*}
+    $L$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Пусть $B = \family{e_i}{i=1}{n}$ --- ОН-базис и пусть $[a]_B = A = (a_ij)$. Тогда $[\hat{a}]_B = A^T$.
+\end{thm*}
+
+\begin{proof}
+    Пусть $[\hat{a}]_B = D = (d_ij)$. Имеем $\forall j\ \hat{a}(e_j) = \sum_{i=1}^n d_{ij} e_i$ и $\forall j\ a(e_j) = \sum_{i=1}^n a_{ij} e_i$. Но $d_{ij} = (\hat{a}(e_j), e_i) = (e_j, a(e_i)) = a_{ji}$, откуда $D = A^T$.
+\end{proof}
+
+\begin{cor*}
+    В предыдущих обозначениях:
+    \begin{enumerate}
+        \item $\chi_a = \chi_{\hat{a}}$.
+        \item $\spec(\hat{a}) = \spec(a)$.
+    \end{enumerate}
+\end{cor*}
