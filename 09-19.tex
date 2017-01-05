@@ -1,0 +1,57 @@
+\section{Нормальные операторы в УП. Свойства собственных векторов нормального оператора}
+
+\begin{defn}
+    Пусть $L$ --- ЕП или УП, $a \in \End \lsub{K}{L}$. $a$ называется \textit{нормальным}, если он коммутирует с $\hat{a}$: $\hat{a} a = a \hat{a}$. В свою очередь матрица $A \in M_n(\mathbb{C})$ называется \textit{нормальной}, если $AA^* = A^*A$.
+\end{defn}
+
+\begin{thm*}
+    $\lsub{\mathbb{C}}{L}$ --- УП. Пусть $a \in \End \lsub{\mathbb{C}}{L}$. Тогда $a$ нормален $\Leftrightarrow$ существует ОН-базис $B$ в $\lsub{\mathbb{C}}{L}$, т.ч. $[a]_B$ диагональна.
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        Пусть $\dim \lsub{\mathbb{C}}{L} = n$. Проведем доказательство при помощи ММИ.
+        
+        \underline{$n = 1$}. Тривиальный случай.
+        
+        \underline{$n \to n + 1$}. Пусть $\lambda \in \spec(a)$. Считаем, что $\mathcal{L}_a(\lambda) \lneqq L$ (иначе можно выбрать произвольный ОН-базис). Из $a$-инвариантности $\mathcal{L}_a(\lambda)$ следует $\hat{a}$-инвариантность $\mathcal{L}_a(\lambda)^\perp$. $\mathcal{L}_a(\lambda)$ также $\hat{a}$-инвариантно (так как $\mathcal{L}_a(\lambda) \ni a(\hat{a}(v)) = \hat{a}(a(v)) = \lambda \hat{a}(v)$, откуда $\hat{a}(v) \in \mathcal{L}_a(\lambda)$), и $\mathcal{L}_a(\lambda)^\perp$ $a$-инвариантно.
+        
+        Рассмотрим $a\vert_{\mathcal{L}_a(\lambda)^\perp}$ и $\hat{a}\vert_{\mathcal{L}_a(\lambda)^\perp}$. Они коммутируют. Тогда по ИП существует ОН-базис $B_0$ в $\mathcal{L}_a(\lambda)^\perp$, состоящий из собственных векторов. Пусть $B_1$ --- произвольный ОН-базис в $\mathcal{L}_a(\lambda)$. Тогда $B \coloneqq B_0 \cup B_1$ --- ОН-базис $L$, состоящий из собственных векторов, т.е. $[a]_B$ диагональна.
+    \end{proofpart}
+
+    \begin{proofpart}
+        Пусть $B$ --- ОН-базис в $\lsub{\mathbb{C}}{L}$, т.ч. $[a]_B = \diag(\lambda_1, \dots, \lambda_n) \eqqcolon A$. Тогда $[\hat{a}]_B = A^* = \diag(\bar{\lambda_1}, \dots, \bar{\lambda_n})$. Ясно, что $A$ и $A^*$ коммутируют, тогда коммутируют и соответствующие операторы, откуда $a$ нормален.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    $A \in M_n(\mathbb{C})$ нормальна $\Leftrightarrow$ существует унитарная $U \in M_n(\mathbb{C})$ такая, что $U^{-1} AU$ диагональна.
+\end{cor}
+
+\begin{proof}
+    Следует из унитарности матрицы перехода между ОН-базисами.
+\end{proof}
+
+\begin{cor}
+    Пусть $L$ --- УП, $a \in \End \lsub{\mathbb{C}}{L}$ --- нормальный оператор. Тогда $\forall \lambda \in \spec(a)\ \mathcal{L}_a(\lambda) = \mathcal{L}_{\hat{a}}(\bar{\lambda})$.
+\end{cor}
+
+\begin{proof}
+    Пусть $B = \family{e_i}{i=1}{n}$ --- ОН-базис $L$, т.ч. $[a]_B = \diag(\lambda_1, \dots, \lambda_n)$. Тогда $[\hat{a}]_B = [a]_B^* = \diag(\bar{\lambda_1}, \dots, \bar{\lambda_n})$. В таком случае $\forall i\ a(e_i) = \lambda_i e_i$ и $\hat{a}(e_i) = \bar{\lambda_i} e_i$. Так как $e_i$, принадлежащие $\lambda_i \in \spec(a)$, составляют базисы $\mathcal{L}_a(\lambda)$ и $\mathcal{L}_{\hat{a}}(\bar{\lambda})$, то $\mathcal{L}_a(\lambda) = \mathcal{L}_{\hat{a}}(\bar{\lambda})$.
+\end{proof}
+
+\begin{cor}
+    $L$ --- УП, $a$ --- нормальный оператор. Пусть $\lambda, \mu \in \spec(a)$ --- \textbf{различные} собственные числа. Тогда $\mathcal{L}_a(\lambda) = \mathcal{L}_a(\mu)$.
+\end{cor}
+
+\begin{proof}
+    Пусть $u \in \mathcal{L}_a(\lambda)$, $v \in \mathcal{L}_a(\mu) = \mathcal{L}_{\hat{a}}(\bar{\mu})$. Тогда:
+    $$\begin{array}{ccc}
+        (a(u), v)      & = & (u, \hat{a}(v)) \\
+        \Vert          &   & \Vert           \\
+        (\lambda u, v) &   & (u, \bar{\mu}v) \\
+        \Vert          &   & \Vert           \\
+        \lambda(u, v)  &   & \mu(u, v)
+    \end{array}$$
+    Отсюда $(\mu - \lambda)(u, v) = 0$. Но $\mu \neq \lambda$, следовательно $(u, v) = 0$.
+\end{proof}

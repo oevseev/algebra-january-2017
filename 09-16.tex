@@ -12,14 +12,14 @@
     Пусть $\lsub{\mathbb{C}}{L}$ --- УП. Рассмотрим отображение $f \colon \bar{L} \to L^*$, т.ч. $f(v) = \varphi_v$. Справедливы следующие утверждения:
     \begin{enumerate}
         \item $f$ --- изоморфизм.
-        \item Если $B$ --- ОН-базис в $\lsub{\mathbb{C}}{L}$, то $f(B)$ --- дуальный к нему базис в $L^*$.
+        \item Если $B$ --- ОН-базис в $\lsub{\mathbb{C}}{\bar{L}}$, то $f(B)$ --- дуальный к нему базис в $L^*$.
     \end{enumerate}
 \end{thm*}
 
 \begin{proof}
     \begin{proofpart}
         $$f(u + v) = (\bullet, u + v) = (\bullet, u) + (\bullet, v) = f(u) + f(v)$$
-        $$f(\alpha v) = (\bullet, \bar{\alpha}v) = \bar{\bar{\alpha}}(\bullet, v) = \alpha(\bullet, v) = \alpha f(v)$$
+        $$f(\mu(\alpha, v)) = (\bullet, \bar{\alpha}v) = \bar{\bar{\alpha}}(\bullet, v) = \alpha(\bullet, v) = \alpha f(v)$$
         Отсюда $f$ --- $\mathbb{C}$-линейное отображение. Предположим, что $f(v) = 0$, то есть $\forall u \in L\ (u, v) = 0$, тогда $(v, v) = 0 \leadsto v = \nil \leadsto \ker f = \nilset$ и $f$ --- мономорфизм. Но $\dim \lsub{\mathbb{C}}{\bar{L}} = \dim \lsub{\mathbb{C}}{L^*}$, и $f$ --- изоморфизм.
     \end{proofpart}
     \begin{proofpart}
