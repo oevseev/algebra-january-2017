@@ -1,0 +1,84 @@
+\section{Сопряженные операторы в УП}
+
+\begin{defn}
+    $\lsub{\mathbb{C}}{L}$ --- УП, $a \in \End \lsub{\mathbb{C}}{L}$. \textit{Сопряженным к $a$} назовем оператор $\hat{a}$, т.ч. $\forall u, v \in L\ (a(u), v) = (u, \hat{a}(v))$.
+\end{defn}
+
+\begin{rem}
+    Пусть $v \in L$. Рассмотрим отображение $\psi_v \colon L \to \mathbb{C}$, т.ч. $\psi_v(u) = (a(u), v)$. Ясно, что $\psi_v \in L^*$. Тогда $\exists! \tilde{v} \colon \psi_v = \varphi_{\tilde{v}} = (\bullet, \tilde{v})$. Положим $\hat{a}(v) \coloneqq \tilde{v}$. Таким образом мы предъявим явную конструкцию сопряженного оператора.
+    
+    Предположим, что существует оператор $\tilde{a}$, т.ч. $(a(u), v) = (u, \tilde{a}(v))\ \forall u, v \in L$. Тогда $\forall u, v \in L$ имеем $(u, \tilde{a}(v)) = (u, \hat{a}(v)) \leadsto (u, \tilde{a}(v) - \hat{a}(v)) = 0 \leadsto \tilde{a}(v) = \hat{a}(v)\ \forall v$. Таким образом, сопряженный оператор существует и определен однозначно.
+\end{rem}
+
+\begin{thm}
+    $L$ --- УП. Пусть $a, b \in \End \lsub{\mathbb{C}}{L}$. Тогда:
+    \begin{enumerate}
+        \item $\widehat{a + b} = \hat{a} + \hat{b}$.
+        \item $\forall \alpha \in \mathbb{R}\ \widehat{\alpha a} = \bar{\alpha} \hat{a}$.
+        \item $\widehat{ab} = \hat{b} \hat{a}$.
+        \item $\hat{\hat{a}} = a$.
+        \item $a$ обратим $\Leftrightarrow$ $\hat{a}$ обратим.
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+    \begin{proofpart}
+        $$((a + b)(u), v) = (a(u), v) + (b(u), v) = (u, \hat{a}(v)) + (u, \hat{b}(v)) = (u, (\hat{a} + \hat{b})(v)) \Rightarrow \widehat{a + b} = \hat{a} + \hat{b}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        $$((\alpha a)(u), v) = \alpha(a(u), v) = \alpha(u, \hat{a}(v)) = (u, \bar{\alpha}\hat{a}(v)) \Rightarrow \widehat{\alpha a} = \bar{\alpha} \hat{a}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        $$((ab)(u), v) = (a(b(u)), v) = (b(u), \hat{a}(v)) =(u, \hat{b}(\hat{a}(v))) = (u, \hat{b} \hat{a}(v)) \Rightarrow \widehat{ab} = \hat{b} \hat{a}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        $$(a(u), v) = (u, \hat{a}(v)) = \overline{(\hat{a}(v), u)} = \overline{(v, \hat{\hat{a}}(u))} = (\hat{\hat{a}}(u), v) \Rightarrow a = \hat{\hat{a}}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        Пусть $a$ обратим. Тогда:
+        $$\id_L = \widehat{\id_L} = \widehat{a \circ a^{-1}} = \widehat{a^{-1}} \circ \hat{a}$$
+        откуда $\hat{a}$ обратим. Обратное следует из предыдущего пункта.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    Полностью аналогично Следствию 2 из предыдущего вопроса.
+\end{cor}
+
+\begin{cor}
+    Полностью аналогично Следствию 3 из предыдущего вопроса.
+\end{cor}
+
+\begin{cor}
+    Полностью аналогично Следствию 4 из предыдущего вопроса.
+\end{cor}
+
+\begin{thm}
+    $L$ --- УП, $a \in \End \lsub{\mathbb{C}}{L}$. Пусть $B = \family{e_i}{i=1}{n}$ --- ОН-базис $\lsub{\mathbb{C}}{L}$ и пусть $[a]_B = A = (a_{ij})$. Тогда $[\hat{a}]_B = A^*$.
+\end{thm}
+
+\begin{proof}
+    Пусть $[\hat{a}]_B = B = (b_{ij})$. Тогда $a(e_i) = \sum_{j=1}^{n} a_{ji} e_j$, $\hat{a}(e_i) = \sum_{j=1} b_{ji} e_j$. В то же время $a_{ji} = (a(e_i), e_j) = (e_i, \hat{a}(e_j)) = \overline{(\hat{a}(e_j), e_i)} = \overline{b_{ij}}$, откуда $B = A^*$.
+\end{proof}
+
+\begin{cor*}
+    В предыдущих обозначениях:
+    \begin{enumerate}
+        \item $\chi_{\hat{a}} = \overline{\chi_a}$.
+        \item $\spec(a) = \family{\lambda_i}{i=1}{n} \Rightarrow \spec(\hat{a}) = \family{\bar{\lambda_i}}{i=1}{n}$.
+    \end{enumerate}
+\end{cor*}
+
+\begin{proof}
+    \begin{proofpart}
+        $$\chi_{\hat{a}} = |A^* - \lambda E| = |\bar{A}^T - \lambda E| = |\overline{(A - \lambda E)}^T| = |\overline{A - \lambda E}| = \overline{\chi_a}$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        Следует из первого пункта.
+    \end{proofpart}
+\end{proof}

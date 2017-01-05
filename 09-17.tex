@@ -68,7 +68,7 @@
 \end{proof}
 
 \begin{cor}
-    $L$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Пусть $V \le \lsub{\mathbb{R}}{L}$, тогда $V\ a\text{-инвариантно} \Leftrightarrow V^\perp\ \hat{a}\text{-инвариантно}$.
+    $L$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Пусть $V \le \lsub{\mathbb{R}}{L}$, тогда $V$ $a$-инвариантно в том и только в том случае, когда $V^\perp$ $\hat{a}$-инвариантно.
 \end{cor}
 \begin{proof}
     \begin{proofpart}{($\Rightarrow$)}
@@ -116,12 +116,12 @@
     и соответствующие равенства очевидны.
 \end{proof}
 
-\begin{thm*}
-    $L$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Пусть $B = \family{e_i}{i=1}{n}$ --- ОН-базис и пусть $[a]_B = A = (a_ij)$. Тогда $[\hat{a}]_B = A^T$.
-\end{thm*}
+\begin{thm}
+    $L$ --- ЕП, $a \in \End \lsub{\mathbb{R}}{L}$. Пусть $B = \family{e_i}{i=1}{n}$ --- ОН-базис $\lsub{\mathbb{R}}{L}$ и пусть $[a]_B = A = (a_{ij})$. Тогда $[\hat{a}]_B = A^T$.
+\end{thm}
 
 \begin{proof}
-    Пусть $[\hat{a}]_B = D = (d_ij)$. Имеем $\forall j\ \hat{a}(e_j) = \sum_{i=1}^n d_{ij} e_i$ и $\forall j\ a(e_j) = \sum_{i=1}^n a_{ij} e_i$. Но $d_{ij} = (\hat{a}(e_j), e_i) = (e_j, a(e_i)) = a_{ji}$, откуда $D = A^T$.
+    Пусть $[\hat{a}]_B = D = (d_{ij})$. Имеем $\forall j\ \hat{a}(e_j) = \sum_{i=1}^n d_{ij} e_i$ и $\forall j\ a(e_j) = \sum_{i=1}^n a_{ij} e_i$. Но $d_{ij} = (\hat{a}(e_j), e_i) = (e_j, a(e_i)) = a_{ji}$, откуда $D = A^T$.
 \end{proof}
 
 \begin{cor*}
