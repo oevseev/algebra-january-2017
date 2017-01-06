@@ -1,0 +1,154 @@
+\section{Нормальные операторы в ЕП (лемма об инвариантном двумерном подпространстве, каноническая форма матрицы нормального оператора, следствия)}
+
+% Мне физически больно было это все техать.
+
+\begin{lem*}
+    Пусть $L$ --- ЕП, $a$ --- нормальный оператор $L$, не имеющий вещественных собственных чисел. Тогда существует двумерное $a$- и $\hat{a}$-инвариантное подпространство $V \le \lsub{\mathbb{R}}{L}$ и при этом существует ОН-базис $B_0$ в $\lsub{\mathbb{R}}{V}$, т.ч. $[a\vert_V]_{B_0} = \begin{pmatrix}
+        \alpha & \beta \\
+        -\beta & \alpha
+    \end{pmatrix}$, где $\alpha, \beta \in \mathbb{R}$.
+\end{lem*}
+
+\begin{proof}
+    Пусть $B = \family{u_k}{k=1}{n}$ --- ОН-базис $\lsub{\mathbb{R}}{L}$, $A \coloneqq [a]_B$ --- нормальная матрица. Введем вспомогательный оператор $d \colon \mathbb{C}^n \to \mathbb{C}^n$, т.ч. $x \mapsto Ax$. Так как $A$ нормальна, то $d$ --- нормальный оператор.
+    \smallskip
+    
+    Пусть $\lambda = \alpha + \beta i \in \spec(d)$ (здесь $\beta \neq 0$) и $v = X + iY \in \mathcal{L}_d(\lambda) \setminus \nilset$ (где $X, Y \in \mathbb{R}^n$). Так как $A(X + iY) = d(v) = \lambda v = (a + \beta i)(X + iY)$, то по методу неопределенных коэффициентов имеем:
+    \begin{equation}\label{09-20:1}
+        \begin{cases}
+            AX = \alpha X - \beta Y \\
+            AY = \beta X + \alpha Y
+        \end{cases}
+    \end{equation}
+    
+    Так как $A \bar{v} = A(X - iY) = \bar{\lambda} \bar{v}$, то $\bar{v} \in \mathcal{L}_d(\bar{\lambda}) \perp \mathcal{L}_d(\lambda) \ni v$. Отсюда $0 = (v, \bar{v}) = (X + iY)^T(\overline{X - iY}) = (X + iY)^T (X +iY) = X^T X + iY^T X + iX^T Y - Y^T Y = X^T X - Y^T Y + 2i X^T Y$, откуда:
+    \begin{equation}\label{09-20:2}
+        \begin{cases}
+            X^T X = Y^T Y \\
+            X^T Y = 0
+        \end{cases}
+    \end{equation}
+    
+    Так как $v \in \mathcal{L}^{\hat{a}}(\bar{\lambda})$ и $[\hat{a}]_B = A^T$, то:
+    \begin{equation}\label{09-20:3}
+        \begin{cases}
+            A^T X = \alpha X + \beta Y \\
+            A^T Y = -\beta X + \alpha Y
+        \end{cases}
+    \end{equation}
+    При этом $\norm{v} = (X + iY)^T (X - iY) = X^T X + Y^T Y \stackrel{\eqref{09-20:2}}{=} 2 X^T X \stackrel{\eqref{09-20:2}}{=} 2 Y^T Y$. Выбрав $v$ такой, что $\norm{v} = 2$, получим $X^T X = Y^T Y = 1$.
+    \smallskip
+    
+    Определим $v_1$ и $v_2$ следующим образом
+    \begin{align*}
+        v_1 &\coloneqq \sum_{k=1}^n x_k u_k,\ X = (x_k)_{k=1}^n \\
+        v_2 &\coloneqq \sum_{k=1}^n y_k u_k,\ Y = (y_k)_{k=1}^n
+    \end{align*}
+    Рассмотрим $\lsub{\mathbb{R}}{V} \coloneqq \gen{\mathbb{R}}{v_1, v_2} \le \lsub{\mathbb{R}}{L}$. По \eqref{09-20:1} имеем:
+    $$\begin{cases}
+        a(v_1) = \alpha v_1 - \beta v_2 \in V \\
+        a(v_2) = \beta v_1 + \alpha v_2 \in V
+    \end{cases}$$
+    откуда $V$ $a$-инвариантно. По \eqref{09-20:3} имеем:
+    $$\begin{cases}
+        \hat{a}(v_1) = \alpha v_1 + \beta v_2 \in V \\
+        \hat{a}(v_2) = -\beta v_1 + \alpha v_2 \in V
+    \end{cases}$$
+    откуда $V$ $\hat{a}$-инвариантно.
+    
+    Из \eqref{09-20:2} также следует, что $(v_1, v_2) = 0$. По выбору $v$ имеем $\norm{v_1} = \norm{v_2} = 1$. При этом $[a\vert_V] = \begin{pmatrix}
+        \alpha & -\beta \\
+        \beta & \alpha
+    \end{pmatrix}$ и лемма доказана.
+\end{proof}
+
+\begin{thm*}
+    Пусть $L$ --- ЕП, $a$ --- оператор $L$. Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item $a$ нормален $\Leftrightarrow$ существует ОН-базис $B$ в $\lsub{\mathbb{R}}{L}$, т.ч.
+        \begin{equation}\label{09-20:star}\tag{$*$}
+            [a]_B = \begin{pmatrix}
+                A_1 &        & \\
+                    & \ddots & \\
+                    &        & A_t
+            \end{pmatrix},\
+            \text{где $A_k$ --- либо $1 \times 1$-матрица, либо имеет вид}\
+            \begin{pmatrix}
+                \alpha_k & \beta_k \\
+                -\beta_k & \alpha_k
+            \end{pmatrix}
+        \end{equation}
+        \item Такой вид матрицы определен однозначно оператором $a$ с точностью до перестановки диагональных блоков.
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        \underline{($\Rightarrow$)}. Пусть $\dim \lsub{\mathbb{R}}{L} = n$. Проведем доказательство индукцией по $n$.
+        \smallskip
+        
+        $\mathbf{n = 1}$. Тривиальный случай.
+        
+        $\mathbf{n = 2}$. Возможно два случая:
+        \begin{enumerate}
+            \item если $\spec(a) \neq \varnothing$, то рассмотрим $\mathcal{L}_a(\lambda)$. Если оно совпадает с $L$, то достаточно выбрать любой ОН-базис, чтобы получить диагональную форму. В противном случае $\mathcal{L}_a(\lambda)$ и $\mathcal{L}_a(\lambda)^\perp$ $a$- и $\hat{a}$-инвариантны, и к ним можно применить случай $n = 1$.
+            \item если $\space(a) = \varnothing$, то по лемме в $L$ можно выбрать ОН-базис $B_0$, т.ч. $[a]_B = \begin{pmatrix}
+                \alpha & \beta \\
+                -\beta & \alpha
+            \end{pmatrix}$.
+        \end{enumerate}
+    
+        $\mathbf{n - 1 \to n}$. Пусть утверждение верно для $\dim \lsub{\mathbb{R}}{L} < n$. Тогда возможно два случая:
+        \begin{enumerate}
+            \item если $\spec(a) \neq \varnothing$, то случай аналогичен похожему случаю для $n = 2$ с применением ИП.
+            \item если $\spec(a) \neq \varnothing$, то по лемме выделим двумерное $a$- и $\hat{a}$-инвариантное подпространство $V \le \lsub{\mathbb{R}}{L}$. Тогда $V$ и $V^\perp$ $a$- и $\hat{a}$-инвариантны, и к ним можно применить ИП.
+        \end{enumerate}
+        \smallskip
+        
+        \underline{($\Leftarrow$)} Достаточно доказать, что каждый блок получившейся матрицы нормален. В случае $1 \times 1$-блока это очевидно, а для $A_k = \begin{pmatrix}
+            \alpha_k & \beta_k \\
+            -\beta_k & \alpha_k
+        \end{pmatrix}$ нормальность легко проверяется умножением.
+    \end{proofpart}
+
+    \begin{proofpart}
+        Т.к. искомая форма матрицы блочно-диагонально, то такое представление соответствует разложению соответствующего $\lsub{\mathbb{R}}{L}$ $\mathbb{R}[x]$-модуля в прямую сумму подмодулей.
+        
+        Для блока $A_k$ вида $(\lambda)$ минимальным многочленом является $x - \lambda$, поэтому соответствующий подмодуль имеет вид $\mathbb{R}[x] / \langle x - \lambda \rangle$ --- циклический примарный.
+        
+        Для блока $A_k$ вида $\begin{pmatrix}
+            \alpha_k & \beta_k \\
+            -\beta_k & \alpha_k
+        \end{pmatrix}$ характеристический многочлен имеет вид $\chi_{A_k} = (\alpha_k - x)^2 + \beta_k^2$ и, очевидно, неприводим. Тогда минимальный многочлен (делящий $\chi_{A_k}$ по следствию теоремы Гамильтона-Кэли) совпадает с ним. Отсюда такому блоку соответствует подмодуль вида $\mathbb{R}[x] / \langle x^2 - 2 \alpha_k x + \alpha_k^2 + \beta_k^2 \rangle$ --- циклический примарный. Такое разложение единственно с точностью до порядка слагаемых по теореме Крулля-Шмидта. Тогда единственно и представление матрицы в искомом виде.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    $A \in M_n(\mathbb{R})$ нормальна $\Leftrightarrow$ существует ортогональная $C \in M_n(\mathbb{R})$, т.ч. $C^T AC$ имеет вид \eqref{09-20:star}.
+\end{cor}
+
+\begin{proof}
+    Очевидно.
+\end{proof}
+
+\begin{cor}
+    $A \in M_n(\mathbb{R})$. $A$ симметрична $\Leftrightarrow$ существует ортогональная $C \in M_n(\mathbb{R})$, т.ч. $C^T AC$ диагональна.
+\end{cor}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        Можно считать, что $A$ имеет вид \eqref{09-20:star}. Так как она симметрична, то она диагональна.
+    \end{proofpart}
+    
+    \begin{proofpart}{($\Leftarrow$)}
+        $A^T = (CDC^T)^T = CD^TC^T = CDC^T = A$, откуда $A$ симметрична.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    Пусть $A \in M_n(\mathbb{R})$ --- симметрическая матрица, тогда $\chi_A$ имеет только вещественные корни.
+\end{cor}
+
+\begin{proof}
+    Пусть $A = CDC^{-1}$, где $D = \diag(\lambda_1, \dots, \lambda_n),\ \lambda_k \in \mathbb{R}$. Тогда $\chi_A = \chi_D = \prod_{k=1}^n (\lambda_k - x)$.
+\end{proof}
