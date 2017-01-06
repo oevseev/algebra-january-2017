@@ -1,0 +1,61 @@
+\section{Изометрические операторы, простейшие свойства}
+
+\begin{defn}
+    Пусть $L$ --- ЕП или УП, $a$ --- оператор $L$. $a$ называется \textit{изометрическим}, если $\forall u, v\ (a(u), a(v)) = (u, v)$. Изометрические операторы в УП называются \textit{унитарными}, а в ЕП --- \textit{ортогональными}.
+\end{defn}
+
+\begin{thm*}
+    $L$ --- ЕП или УП, $a$ --- оператор. $a$ изометричен $\Leftrightarrow$ $\hat{a} a = \id_L$.
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        $\forall u, v \in L$ имеем $(u, v) = (a(u), a(v)) = (u, \hat{a}a(v))$, откуда $\hat{a}a(v) = v$ и $\hat{a} a = \id_L$.
+    \end{proofpart}
+
+    \begin{proofpart}{($\Leftarrow$)}
+        Имеем $(a(u), a(v)) = (u, \hat{a}a(v)) = (u, v)$ и $a$ изометричен.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor}
+    Любой изометрический оператор обратим и обратен своему сопряженному.
+\end{cor}
+
+\begin{proof}
+    Следует из формулировки теоремы.
+\end{proof}
+
+\begin{cor}
+    $a$ изометричен $\Leftrightarrow$ $\hat{a}$ изометричен.
+\end{cor}
+
+\begin{proof}
+    Следует из того, что $\hat{\hat{a}} = a$.
+\end{proof}
+
+\begin{cor}
+    Любой изометрический оператор нормален.
+\end{cor}
+
+\begin{proof}
+    $\forall a\ \hat{a} a = \id_L = a \hat{a}$ и $a$ нормален.
+\end{proof}
+
+\begin{cor}
+    $L$ --- УП, $a$ --- оператор $L$. Равносильны:
+    \begin{enumerate}
+        \item $a$ --- унитарный оператор.
+        \item Для любого ОН-базиса $B$ матрица $[a]_B$ унитарна.
+        \item Существует ОН-базис $B$, т.ч. матрица $[a]_B$ унитарна.
+    \end{enumerate}
+\end{cor}
+
+\begin{cor}
+    $L$ --- ЕП, $a$ --- оператор $L$. Равносильны:
+    \begin{enumerate}
+        \item $a$ --- ортогональный оператор.
+        \item Для любого ОН-базиса $B$ матрица $[a]_B$ ортогональна.
+        \item Существует ОН-базис $B$, т.ч. матрица $[a]_B$ ортогональна.
+    \end{enumerate}
+\end{cor}

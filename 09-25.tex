@@ -1,0 +1,46 @@
+\section*{9.25 -- 9.27. Свойства самосопряженных операторов на ЕП и УП}
+
+\setcounter{thm}{0}
+
+\begin{thm}
+    Пусть $L$ --- УП, $a$ --- самосопряженный оператор (т.е. т.ч. $a = \hat{a}$). Тогда $\forall u \in L\ (a(u), u) \in \mathbb{R}$.
+\end{thm}
+
+\begin{proof}
+    $\overline{(a(u), u)} = (u, a(u)) = (a(u), u)$, откуда $(a(u), u) \in \mathbb{R}$.
+\end{proof}
+
+\begin{thm}
+    $L$ --- ЕП, $a$ --- оператор $L$. $a$ --- самосопряженный $\Leftrightarrow \exists$ ОН-базис $B$ в $\lsub{\mathbb{R}}{L}$, т.ч. $[a]_B$ диагональна.
+\end{thm}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        $a$ самосопряжен $\leadsto a$ нормален $\leadsto \exists$ ОН-базис $B$ в $\lsub{\mathbb{R}}{L}$, т.ч. $A \coloneqq [a]_B$ имеет канонический вид \eqref{09-20:star} из соответствующей теоремы. Так как $a$ самосопряжен, то $A^T = A$; соответственно блоков вида $\begin{pmatrix}
+            \alpha_k & \beta_k \\
+            \beta_k  & \alpha_k
+        \end{pmatrix}$ в $A$ нет, и $A$ диагональна.
+    \end{proofpart}
+
+    \begin{proofpart}{($\Leftarrow$)}
+        Пусть $[a]_B = \diag(\lambda_1, \dots, \lambda_n)$. Тогда $[a]_B^T = [a]_B$, и $a$ самосопряжен.
+    \end{proofpart}
+\end{proof}
+
+\begin{thm}
+    $L$ --- УП, $a$ --- оператор. $a$ самосопряжен $\Leftrightarrow \exists$ ОН-базис в $\lsub{\mathbb{C}}{L}$, т.ч. $[a]_B$ диагональна, и при этом $\forall \lambda \in \spec(a)\ \lambda \in \mathbb{R}$.
+\end{thm}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        $a$ самосопряжен $\leadsto a$ нормален $\leadsto \exists$ ОН-базис $B$ в $\lsub{\mathbb{R}}{L}$, т.ч. $A \coloneqq [a]_B = \diag(\lambda_1, \dots, \lambda_n)$. При этом $A^* = A$, откуда $\forall k\ \lambda_k \in \mathbb{R}$ и все собственные числа матрицы (а, соответственно, и оператора) вещественны.
+    \end{proofpart}
+    
+    \begin{proofpart}{($\Leftarrow$)}
+        Пусть $A \coloneqq [a]_B = \diag(\lambda_1, \dots, \lambda_n)$ и $\lambda_k \in \mathbb{R}$. Тогда $A^* = A$, и $a$ самосопряжен.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor*}
+    Эрмитова матрица имеет только вещественные собственные числа.
+\end{cor*}

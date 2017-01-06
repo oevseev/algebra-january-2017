@@ -1,0 +1,50 @@
+\section{Ортогональные операторы: каноническая форма матрицы ортогонального оператора. Ортогональная группа, специальная ортогональная группа}
+
+\begin{thm*}
+    $L$ --- ЕП, $a$ --- оператор $L$. Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item $a$ ортогонален $\Leftrightarrow \exists$ ОН-базис $B$, т.ч.
+        \begin{equation}\label{09-23:venus}\tag{\Venus}
+            [a]_B = \begin{pmatrix}
+                E_s &      &     &        & \\
+                    & -E_t &     &        & \\
+                    &      & A_1 &        & \\
+                    &      &     & \ddots & \\
+                    &      &     &        & A_t
+            \end{pmatrix},\
+            \text{где}\ A_k = \begin{pmatrix}
+                \cos \phi_k & -\sin \phi_k \\
+                \sin \phi_k & \cos \phi_k
+            \end{pmatrix},\ \phi_k \not\in \left\{\pi l \mid l \in \mathbb{Z} \right\}
+        \end{equation}
+        \item Матрица вида \eqref{09-23:venus} определена однозначно с точностью до перестановки блоков $A_k$.
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        \underline{($\Rightarrow$)} $a$ ортогонален $\leadsto a$ нормален $\leadsto \exists$ ОН-базис $B$, т.ч. матрица $[a]_B$ имеет канонический вид (\eqref{09-20:star} из соответствующей теоремы). Обозначим блоки такой матрицы как $B_1, \dots, B_t$. Так как $A^T A = E$, то $B_k^T B_k \in \{E_1, E_2\}$. Имеем $B_k = (\pm 1)$ в случае $1 \times 1$-блока и $\alpha_k^2 + \beta_k^2 = 1$ в случае второго блока. Во втором случае $\exists \phi_k \not\in \left\{\pi l \mid l \in z \right\}$, т.ч. $\begin{cases}
+            \alpha_k = \cos \phi_k \\
+            -\beta_k = \sin \phi_k
+        \end{cases}$, и соответствующий блок $A_k$ имеет нужный вид.
+        \smallskip
+        
+        \underline{$(\Leftarrow)$} Легко проверяется, что матрица вида \eqref{09-23:venus} ортогональна, а тогда ортогонален и соответствующий оператор.
+    \end{proofpart}
+
+    \begin{proofpart}
+        Напрямую следует из единственности канонической формы матрицы нормального оператора.
+    \end{proofpart}
+\end{proof}
+
+\begin{cor*}
+    $A \in M_n(\mathbb{R})$ ортогональна $\Leftrightarrow \exists$ ортогональная $C \in M_n(\mathbb{R})$, т.ч. $C^T AC$ имеет вид \eqref{09-23:venus}.
+\end{cor*}
+
+\begin{proof}
+    Очевидно.
+\end{proof}
+
+\begin{defn}
+    Ортогональные операторы, действующие на ЕП $L$, образуют группу. Аналогично, ортогональные $n \times n$-матрицы образуют группу $\text{S}(n, \mathbb{R})$, называемую \textit{ортогональной}. $\forall M \in \text{S}(n, \mathbb{R})\ \det M = \pm 1$. Матрицы $M \in \text{S}(n, \mathbb{R})$, т.ч. $\det M = 1$, образуют группу $\text{SO}(n, \mathbb{R})$, называемую \textit{специальной ортогональной}.
+\end{defn}

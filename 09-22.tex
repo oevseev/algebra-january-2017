@@ -1,0 +1,39 @@
+\section{Унитарный оператор: свойства собственных чисел, связь между унитарными и эрмитовыми матрицами. Унитарная группа}
+
+\begin{thm*}
+    $L$ --- УП, $a$ --- оператор. $a$ унитарен $\Leftrightarrow \exists$ ОН-базис $B$, т.ч. $[a]_B$ диагональна и $\forall \lambda \in \spec(a)\ |\lambda| = 1$.
+\end{thm*}
+
+\begin{proof}
+    Из унитарности $a$ следует нормальнось $a$ и диагональность матрицы $[a]_B = \diag(\lambda_1, \dots, \lambda_n) \eqqcolon A$. Рассмотрим $A^* = \diag(\bar{\lambda_1}, \dots, \bar{\lambda_n})$. $a$ унитарен в том и только в том случае, когда $A^*A = E$. Но $A^*A = E \Leftrightarrow \diag({|\lambda_1|}^2, \dots, {|\lambda_n|}^2) = E \Leftrightarrow \forall \lambda \in \spec(a)\ |\lambda| = 1$.
+\end{proof}
+
+\begin{cor}
+    $A \in M_n(\mathbb{C})$ унитарна $\Leftrightarrow \exists$ унитарная $U \in M_n(\mathbb{C})$, т.ч. $U^{-1} AU$ диагональна и $\forall \lambda \in \spec(a) |\lambda| = 1$.
+\end{cor}
+
+\begin{proof}
+    Следует из свойств унитарной матрицы и доказательства теоремы.
+\end{proof}
+
+\begin{cor}
+    $A \in M_n(\mathbb{C})$ унитарна $\Leftrightarrow \exists$ эрмитова $\Phi \in M_n(\mathbb{C})$, т.ч. $A = e^{i\Phi}$.
+\end{cor}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        Пусть $U \in M_n(\mathbb{C})$ --- унитарная матрица, т.ч. $U^{-1} AU = D = \diag(\lambda_1, \dots, \lambda_n)$, где $|\lambda_j| = 1\ \forall j$. Пусть $\lambda_j = e^{i\phi_j}$.
+        
+        Положим $\tilde{\Phi} \coloneqq \diag(\phi_1, \dots, \phi_n)$. Имеем $D = e^{i\tilde{\Phi}} \leadsto A = UDU^{-1} = Ue^{i\tilde{\Phi}}U^{-1} = e^{iU\tilde{\Phi}U^{-1}}$. Положим $\Phi \coloneqq U\tilde{\Phi}U^{-1}$. Получим $D = e^{i\Phi}$. При этом $\Phi^* = (U\tilde{\Phi}U^{-1})^* = (U^{-1})* \tilde{\Phi}^* U^* = U \tilde{\Phi} U^{-1} = \Phi$, т.е. $\Phi$ эрмитова.
+    \end{proofpart}
+
+    \begin{proofpart}{($\Leftarrow$)}
+        Имеем $A = e^{i\Phi}$, где $\Phi$ эрмитова. Тогда:
+        $$A^* = (e^{i\Phi})^* = \left(\sum_{k=0}^\infty \frac{1}{k!} (i\Phi)^k\right)^* = \sum_{k=0}^\infty \frac{1}{k!} \left((i\Phi)^*\right)^k = \sum_{k=0}^\infty \frac{1}{k!} (-i\Phi)^k = e^{-i\Phi}$$
+        Ясно, что $i\Phi$ и $-i\Phi$ коммутируют. Имеем $AA^* = e^{i\Phi} e^{-i\Phi} = E$, откуда $A$ унитарна.
+    \end{proofpart}
+\end{proof}
+
+\begin{defn}
+    $L$ --- УП, $n \coloneqq \dim \lsub{\mathbb{C}}{L}$. Множество всех унитарных операторов на $L$ образует группу. Аналогично, множество всех унитарных $n \times n$-матриц образует группу $U(n)$, называемую унитарной группой порядка $n$.
+\end{defn}
