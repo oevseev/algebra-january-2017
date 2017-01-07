@@ -1,0 +1,15 @@
+\section{Теорема об извлечении корня из положительно определенного оператора}
+
+\begin{thm*}
+    Пусть $L$ --- ЕП или УП, $a$ --- положительно определенный оператор. Пусть $m \in \mathbb{N} \setminus \{1\}$, тогда $\exists!$ положительно определенный оператор $c$, т.ч. $c^m = a$.
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}{(существование)}
+        Имеем $a$ --- положительно определенный самосопряженный оператор. Тогда $\exists$ ОН-базис $B = \family{e_j}{j=1}{n}$, т.ч. $[a]_B = \diag(\lambda_1, \dots, \lambda_n)$, где $\lambda_j > 0\ \forall j$. Пусть $\mu_j = \sqrt[m]{\lambda_j} \in \mathbb{R}_+$. Построим оператор $c$, т.ч. $[c]_B = \diag(\mu_1, \dots, \mu_n)$, т.е. $c(e_j) = \mu_j e_j$. Тогда $[c^m]_B = [a]_B$ и, соответственно, $c^m = a$. Заметим, что $\forall \lambda \in \spec(a)\ \mathcal{L}_a(\lambda) = \mathcal{L}_c (\sqrt[m]{\lambda})$.
+    \end{proofpart}
+
+    \begin{proofpart}{(единственность)}
+        Предположим, что $\tilde{c}$ --- еще один положительно определенный оператор, т.ч. $\tilde{c}^m = a$. Тогда $\exists$ ОН-базис $B'$ в $\lsub{K}{L}$, т.ч. $[\tilde{c}]_{B'} = \diag(\tilde{\mu_1}, \dots, \tilde{\mu_n})$, причем $\forall j\ \tilde{\mu_j} > 0$. Тогда $[a]_B' = \diag(\tilde{\mu_1}^m, \dots, \tilde{\mu_n}^m)$. По единственности ЖНФ можно считать, что $\lambda_j = \mu_j^m = \tilde{\mu_j}^m\ \forall j$. Аналогично предыдущему пункту имеем $\mathcal{L}_c(\sqrt[m]{\lambda}) = \mathcal{L}_a(\lambda) = \mathcal{L}_{\tilde{c}}(\sqrt[m]{\lambda})\ \forall \lambda \in \spec(a)$, тогда $c$ и $\tilde{c}$ совпадают на $\mathcal{L}_a(\lambda)\ \forall \lambda \in \spec(a)$. Но тогда они совпадают и на $\bigoplus_{\lambda \in \spec(a)} \mathcal{L}_a(\lambda) = L$, откуда $\tilde{c} \equiv c$.
+    \end{proofpart}
+\end{proof}

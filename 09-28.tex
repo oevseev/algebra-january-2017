@@ -1,0 +1,49 @@
+\section{Положительно определенные самосопряженные операторы, простейшие свойства, примеры (операторы $\hat{a}a$ и $a\hat{a}$)}
+
+\begin{defn}
+    $L$ --- ЕП или УП, $a$ --- самосопряженный оператор. $a$ называется \textit{положительно определенным}, если:
+    \begin{enumerate}
+        \item $\forall u \in L\ (a(u), u) \ge 0$.
+        \item $(a(u), u) = 0 \Leftrightarrow u = 0$.
+    \end{enumerate}
+\end{defn}
+
+\begin{rem}
+    Если $a$ положительно определен, то $a$ обратим:
+    $$a(u) = \nil \leadsto (a(u), u) = 0 \leadsto u = \nil \leadsto \ker a = \nilset$$
+    откуда $a$ мономорфизм и, как следствие, изоморфизм.
+\end{rem}
+
+\begin{thm}
+    $L$ --- ЕП или УП, $a$ --- оператор. Пусть $a$ обратим, тогда $a\hat{a}$ и $\hat{a}a$ --- положительно определенные самосопряженные операторы.
+\end{thm}
+
+\begin{proof}
+    Ясно, что $a \hat{a}$ самосопряжен. Имеем:
+    \begin{enumerate}
+        \item $(a\hat{a}(u), u) = (\hat{a}(u), \hat{a}(u)) \ge 0$.
+        \item $(a\hat{a}(u), u) = 0 \leadsto \hat{a}(u) = \nil \stackrel{\cdot \widehat{a^{-1}}}{\leadsto} u = \nil$.
+    \end{enumerate}
+    Для $\hat{a} a$ утверждение доказывается аналогично.
+\end{proof}
+
+\begin{thm}
+    $L$ --- ЕП или УП, $a$ --- самосопряженный оператор. $a$ положительно определен $\Leftrightarrow \forall \lambda \in \spec(a)\ \lambda > 0$.
+\end{thm}
+
+\begin{proof}
+    \begin{proofpart}{($\Rightarrow$)}
+        Пусть $a$ самосопряжен, тогда $\exists$ ОН-базис $B$ в $\lsub{K}{L}$, т.ч. $[a]_B = \diag(\lambda_1, \dots, \lambda_n)$ и $\lambda_k \in \mathbb{R}\ \forall k$. Имеем:
+        $$\lambda_j = (a(e_j), e_j) > 0 \leadsto (\lambda_j e_j, e_j) = \lambda_j (e_j, e_j) = \lambda_j \cdot 1 > 0 \leadsto \lambda_j > 0\ \forall j$$
+    \end{proofpart}
+
+    \begin{proofpart}{($\Leftarrow$)}
+        Пусть $B = \family{e_j}{j=1}{n}$ --- ОН-базис в $\lsub{K}{L}$, т.ч. $[a]_B = \diag(\lambda_1, \dots, \lambda_n)$ и $\forall j\ \lambda_j > 0$. Пусть $u \in L$, тогда $u$ представим в виде $u = \sum_{j=1}^n x_j e_j$, где $x_j \in K$. Имеем:
+        \begin{align*}
+            (a(u), u) &= \left(a\left(\sum_{j=1}^n x_j e_j\right),\ \sum_{k=1}^n x_k e_k\right) = \sum_{j,k=1}^n x_j \bar{x_k} (a(e_j), e_k) \\
+            &= \sum_{j,k=1}^n x_j \bar{x_k} \lambda_j (e_j, e_k) = \sum_{s=1}^n x_s \bar{x_s} \lambda_s = \sum_{s=1}^n \norm{x_s}^2 \lambda_s \ge 0
+        \end{align*}
+        
+        Предположим, что $(a(u), u) = 0$, тогда $\sum_{s=1}^n \norm{x_s}^2 \lambda_s = 0$. Но $\lambda_s > 0\ \forall s$, откуда $\norm{x_s}^2 = 0\ \forall s$ и $u = \nil$.
+    \end{proofpart}
+\end{proof}
