@@ -1,0 +1,42 @@
+\section{Спектральное разложение самосопряженного оператора. Спектральное разложение симметрической вещественной формы}
+
+\begin{thm*}
+    $L$ --- ЕП или УП, $a$ --- самосопряженный оператор. Для $\lambda \in \spec(a)$ введем обозначения $V_\lambda \coloneqq \mathcal{L}_a(\lambda)$, $p_\lambda$ --- оператор ортогонального проектирования на $V_\lambda$. Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item $a = \sum_{\lambda \in \spec(a)} \lambda p_\lambda$, причем $\lambda$ считаются без учета кратности.
+        \item $\forall \lambda, \mu \in \spec(a)\ p_\lambda p_\mu = \begin{cases}
+            p_\lambda, & \mu = \lambda \\
+            0,         & \mu \neq \lambda
+        \end{cases}$
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        Так как $\lsub{K}{L} = \bigoplus_{\lambda \in \spec(a)} V_\lambda$, то $\forall u \in L$ имеем $u = \sum_{\lambda \in \spec(a)} u_\lambda$, где $u_\lambda \in V_\lambda$. Так как $a$ нормален, то $V_\lambda \perp V_\mu\ \forall \lambda \neq \mu \in \spec(a)$. При этом ясно, что $p_\lambda(u) = u_\lambda$. Так,
+        $$a(u) = a\left(\sum_{\lambda \in \spec(a)} u_\lambda\right) = \sum_{\lambda \in \spec(a)} a(u_\lambda) = \sum_{\lambda \in \spec(a)} \lambda u_\lambda = \sum_{\lambda \in \spec(a)} \lambda p_\lambda(u) = \left(\sum_{\lambda \in \spec(a)} \lambda p_\lambda\right)(u)$$
+    \end{proofpart}
+
+    \begin{proofpart}
+        Очевидным образом следует из того, что $p_\lambda(u) = u_\lambda$.
+    \end{proofpart}
+\end{proof}
+
+\begin{rem}
+    Можно переформулировать теорему следующим образом: пусть $L$ --- ЕП или УП, $a$ --- самосопряженный оператор, $B = \family{e_j}{j=1}{n}$ --- ОН-базис, состоящий из собственных векторо. Положим $V_j = \gen{K}{e_j}$, $p_j$ --- оператор проектирования на $V_j$. Пусть $\lambda_j$ --- собственное число, которому принадлежит $e_j$. Тогда:
+    \begin{enumerate}
+        \item $a = \sum{j=1}^n \lambda_j p_j$.
+        \item $p_k p_j = \begin{cases}
+            p_k, & k = j \\
+            0,   & k \neq j
+        \end{cases}$
+    \end{enumerate}
+\end{rem}
+
+\begin{cor*}
+    Пусть $A \in M_n(\mathbb{R})$ и $A^T = A$. Пусть $\family{u_k}{k=1}{n}$ --- ОН-базис $\mathbb{R}^n$, состоящий из собственных векторов $A$ (т.е. $Au_k = \lambda_k u_k$). Тогда $A = \sum_{k=1}^n \lambda_k u_k u_k^T$.
+\end{cor*}
+
+\begin{proof}
+    Достаточно воспользоваться переформулированным вариантом теоремы, заметив, что $(u_ku_k^T)x = u_k(u_k^Tx) = (u_k, x)u_k$ --- проекция $x$ на $u_k$.
+\end{proof}

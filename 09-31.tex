@@ -1,0 +1,27 @@
+\section{Характеризация операторов ортогонального проектирования}
+
+\begin{thm*}
+    $L$ --- ЕП или УП. $a$ --- оператор. Равносильны:
+    \begin{enumerate}
+        \item $a$ --- оператор ортогонального проектирования.
+        \item $a$ --- самосопряженный проектор.
+        \item $a$ самосопряжен и $\forall \lambda \in \spec(a)\ \lambda \in \{0, 1\}$.
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}\ % еее костыльная верстка
+    \medskip
+    
+    \textbf{(а) $\Rightarrow$ (в).} 
+    Представим $L$ в виде $\lsub{K}{L} = \im a \oplus (\im a)^\perp$. Выберем в $\im a$ и $(\im a)^\perp$ ОН-базисы $B_0$ и $B_1$ соответственно. Положим $B \coloneqq B_0 \cup B_1$ --- это будет ОН-базис $\lsub{K}{L}$. Тогда $A \coloneqq [a]_B = \diag(\underbrace{1, \dots, 1}_{k\ \text{раз}}, 0, \dots, 0)$, где $k = \dim \lsub{K}{\im a}$, откуда $\spec(a) = \spec A \subset \{0, 1\}$.
+    \medskip
+    
+    \textbf{(в) $\Rightarrow$ (б).}
+    Так как $a$ самосопряжен, то $\exists$ ОН-базис $B$ в $\lsub{K}{L}$, т.ч. $A \coloneqq [a]_B = \diag(\lambda_1, \dots, \lambda_n)$, при этом $\lambda_j \in \{0, 1\}$. Тогда $A^2 = A$, откуда $a^2 = a$ и $a$ --- проектор.
+    \medskip
+    
+    \textbf{(б) $\Rightarrow$ (а).} 
+    Представим $L$ в виде $\lsub{K}{L} = \im a \oplus \ker a$. Тогда по самосопряженности $a$ имеем $\ker a = \ker \hat{a} = (\im a)^\perp$ и $L = \im a \oplus (\im a)^\perp$, откуда $a$ --- оператор ортогонального проектирования.
+    \medskip
+    
+\end{proof}
