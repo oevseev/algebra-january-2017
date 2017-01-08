@@ -1,0 +1,97 @@
+\section{Понятие тензорнго произведения модулей (определение, конструкция, следствия, примеры)}
+
+\begin{defn}
+    $k$ --- коммутативное кольцо с единицей, $\lsub{k}{U}$ и $\lsub{k}{V}$ --- модули. \textit{Тензорным произведением} $U$ и $V$ называется пара $(T, t)$, где $\lsub{k}{T}$ --- модуль, а $t \colon U \times V \to T$ --- билинейное отображение, обладающее \textit{универсальным свойством тензорного произведения}:
+    \begin{diagram}
+        U \times V &         & \rTo^t &                   & T \\
+                   & \rdTo_f &        & \ldDashto_\varphi &   \\
+                   &         & W      &                   &
+    \end{diagram}
+    то есть $\forall f \colon U \times V \to W$ --- билинейного отображения, где $\lsub{k}{W}$ --- некоторый модуль, $\exists!$ $k$-гомоморфизм $\varphi \colon T \to W$, т.ч. $\varphi t = f$.
+    
+    Тензорное произведение единственно с точностью до изоморфизма. В связи с этим используется стандартное обозначение $T \eqqcolon U \otimes_k V$ (или, если кольцо ясно из контекста, $U \otimes V$).
+\end{defn}
+
+\begin{thm*}
+    $k$ --- коммутативное кольцо с единицей. Пусть $U$ и $V$ --- $k$-модули, тогда их тензорное произведение существует.
+\end{thm*}
+
+\begin{proof}
+    Пусть $X \coloneqq U \times V$. Построим свободный модуль $F \coloneqq F\langle X \rangle$. Положим:
+    \begin{align*}
+        Y_1 &\coloneqq \left\{(\alpha_1u_1 + \alpha_2u_2, v) - \alpha_1(u_1, v) - \alpha_2(u_2, v) \mid \alpha_1, \alpha_2 \in k, u_1, u_2 \in U, v \in V \right\} \\
+        Y_2 &\coloneqq \left\{(u, \alpha_1v_1 + \alpha_2v_2) - \alpha_1(u, v_1) - \alpha_2(u, v_2) \mid \alpha_1, \alpha_2 \in k, u \in U, v_1, v_2 \in V \right\} \\
+        Y & \coloneqq Y_1\ \mathring{\cup}\ Y_2
+    \end{align*}
+
+    Пусть $G \coloneqq \gen{K}{Y} \le \lsub{k}{F}$. Рассмотрим $\lsub{k}{T} \coloneqq F/G$. Введем отображение $t \colon U \times V \to T$, т.ч. $(u, v) \mapsto (u, v) + G$ --- билинейное вследствие определения $G$.
+
+    Докажем, что пара $(T, t)$ удовлетворяет универсальному свойству тензорного произведения. Пусть $\rho \colon F \to T$ --- отображение факторизации, $i \colon U \times V \to F$ --- вложение. Ясно, что $t = \rho i$. Пусть $\lsub{k}{W}$ --- произвольный модуль и $f \colon U \times V \to W$ --- билинейное отображение. Рассмотрим следующую диаграмму:
+    \begin{diagram}
+        U \times V & & \rTo^t & & T \\
+        & \rdTo(2, 4)_f \rdInto^i & & \ruOnto^\rho \ldDashto(2, 4)_\varphi & \\
+        & & F & & \\
+        & & \dDashto_{\tilde{f}} & & \\
+        & & W & &
+    \end{diagram}
+    
+    По определению $F$ $\exists!$ $k$-гомоморфизм $\tilde{f} \colon F \to W$, т.ч. $f = \tilde{f} i$. Покажем, что $G \subset \ker \tilde{f}$. Для этого достаточно доказать, что $Y \subset \ker \tilde{f}$. Рассмотрим это на примере $Y_1$ (для $Y_2$ действия аналогичны):
+    \begin{align*}
+        f(y_1) &= \tilde{f}((\alpha_1 u_1 + \alpha_2 u_2, v) - \alpha_1(u_1, v) - \alpha_2(u_2, v)) \\
+        &= \tilde{f}((\alpha_1 u_1 + \alpha_2 u_2, v)) - \alpha_1 \tilde{f}((u_1, v)) - \alpha_2 \tilde{f}((u_2, v)) = \\
+        &= \tilde{f}(i(\alpha_1 u_1 + \alpha_2 u_2, v)) - \alpha_1 \tilde{f}(i(u_1, v)) - \alpha_2 \tilde{f}(i(u_2, v)) = \\
+        &= f(\alpha_1 u_1 + \alpha_2 u_2, v) - \alpha_1 f(u_1, v) - \alpha_2 f(u_2, v) = f(0, v) = 0
+    \end{align*}
+    
+    По теореме о продолжении гомоморфизма на фактормодуль $\exists!$ $k$-гомоморфизм $\varphi \colon T \to W$, т.ч. $\tilde{f} = \varphi \rho$. Тогда $\varphi t = \varphi \rho i = \tilde{f} i = f$. Предположим, что $\tilde{\varphi} \colon T \to W$ --- еще один $k$-гомоморфизм, т.ч. $\tilde{\varphi} t = f$. Тогда $f = (\tilde{\varphi} \rho) i$. При этом $\tilde{f} i = f$ и $\tilde{f}$ --- единственное отображение, обладающее таким свойством. В таком случае $\tilde{\varphi} \rho = \tilde{f}$, но $\phi$ --- единственное отображение, обладающее соответствующим свойствим, откуда $\varphi = \tilde{\varphi}$.
+\end{proof}
+
+\begin{defn}
+    $t \colon U \times V \to T$ называют \textit{каноническим билинейным отображением}. Широко используется обозначение $t(u, v) \eqqcolon u \otimes v$.
+\end{defn}
+
+\begin{cor}
+    Множество $\{u \otimes v \mid u \in U, v \in V\}$ порождает $U \otimes_k V$ как $k$-модуль.
+\end{cor}
+
+\begin{proof}
+    Следует из того, что $U \times V$ порождает $F\langle U \times V \rangle$.
+\end{proof}
+
+\begin{cor}
+    $U \otimes_k V \simeq V \otimes_k U$ как $k$-модули.
+\end{cor}
+
+\begin{proof}
+    Рассмотрим следующую диаграмму:
+    \begin{diagram}
+        U \times V & \rTo^t & U \otimes_k V \\
+        & \rdTo_{t'} & \dTo^\sigma \uTo_\tau \\
+        & & V \otimes_k U
+    \end{diagram}
+    
+    Положим $t \colon (u, v) \mapsto u \otimes v$ и $t' \colon (u, v) \mapsto v \otimes u$ --- билинейные отображения. Тогда $\exists!$ $k$-гомоморфизмы $\sigma$ и $\tau$, т.ч. $\sigma t = t'$ и $\tau t' = t$, откуда $\sigma(u \otimes v) = v \otimes u$ и $\tau(v \otimes u) = u \otimes v$ соответственно. В таком случае $\sigma \tau(u \otimes v) = u \otimes v$ и при этом $\{u \otimes v \mid u \in u, v \in V\}$ порождает $U \otimes V$, откуда $\sigma \tau = \id_{U \otimes V}$. Аналогично, $\tau \sigma = \id_{V \otimes U}$ и $\sigma$ --- искомый изоморфизм.
+\end{proof}
+
+\begin{exmpl}\
+    \begin{enumerate}
+        \item Пусть $k$ --- коммутативное кольцо с единицей, $U$ --- $k$-модуль. Тогда $k \otimes_k U \simeq U$.
+        \begin{proof}
+            Рассмотрим $f \colon k \times U \to U$, т.ч. $f(\alpha, u) = \alpha u$. Рассмотрим дополнительно следующую диаграмму:
+            \begin{diagram}
+                k \times U & & \rTo^t & & k \otimes U \\
+                & \rdTo_f & & \ldDashto_\sigma & \\
+                & & U & &
+            \end{diagram}
+            Согласно универсальному свойству, $\exists! \sigma \colon k \otimes U \to U$, т.ч. $f = \sigma t$.
+            
+            Рассмотрим $\tau \colon U \to k \otimes U$, т.ч. $u \mapsto 1 \otimes u$. Тогда $\tau \sigma(\alpha \otimes u) = \tau \sigma t(\alpha, u) = \tau f(\alpha, u) = \tau(\alpha u) = \alpha(1 \otimes u) = \alpha \otimes u$. Аналогично, $\sigma \tau(u) = \sigma(1 \otimes u) = \sigma t(1, u) = f(1, u) = u$, и $\sigma$ --- изоморфизм.
+        \end{proof}
+    
+        \item Пусть $k = \mathbb{Z}$, $U = \mathbb{Z} / m\mathbb{Z}$, $V = \mathbb{Z} / n\mathbb{Z}$ и $(m, n) = 1$. Тогда $U \otimes_{\mathbb{Z}} V = \{0\}$.
+        
+        \begin{proof}
+            $(m, n) = 1 \leadsto \exists r, s \in \mathbb{Z} \colon 1 = mr + ns \leadsto \forall u \in U, v \in V\ u \otimes v = 1 \cdot (u \otimes v) = r(mu) \otimes v + s \cdot u \otimes (nv) = r \cdot 0 \otimes v + s \cdot u \otimes 0 = 0$.
+        \end{proof}
+    \end{enumerate}
+\end{exmpl}
