@@ -1,0 +1,50 @@
+\section{Аддитивность функтора тензорного произведения}
+
+\begin{lem*}
+    $R$ --- а.к. с единицей. Рассмотрим диаграмму из $R$-модулей и $R$-гомоморфизмов:
+    \begin{equation}\tag{$\natural$}\label{10-03:becarre}
+        \begin{diagram}
+            U_1 & \pile{\rTo^{i_1} \\ \lTo_{p_1}} & V & \pile{\lTo^{i_2} \\ \rTo_{p_2}} & U_2
+        \end{diagram}
+    \end{equation}
+    
+    Предположим, что \begin{enumerate}
+        \item $p_1 i_1 = \id_{U_1}$,
+        \item $p_2 i_2 = \id_{U_2}$,
+        \item $i_1 p_1 + i_2 p_2 = \id_V$.
+    \end{enumerate}
+    Тогда $\lsub{R}{V} \simeq U_1 \oplus U_2$.
+\end{lem*}
+
+\begin{proof}
+    Построим пару отображений $\sigma \colon U_1 \oplus U_2 \to V$ и $\tau \colon V \to U_1 \oplus U_2$, т.ч. $\sigma(u_1, u_2) \coloneqq i_1(u_1) + i_2(u_2)$ и $\tau(v) \coloneqq (p_1(v), p_2(v))$. Тогда $\sigma \tau(v) = (i_1 p_1 + i_2 p_2)(v) = v$, а $\tau \sigma(u_1, u_2) = \tau(i_1(u_1) + i_2(u_2)) = \tau i_1(u_1) + \tau i_2(u_2) = (p_1 i_1(u_1), 0) + (0, p_2 i_2(u_2)) = (u_1, 0) + (0, u_2) = (u_1, u_2)$, откуда $\sigma$ --- искомый изоморфизм.
+\end{proof}
+
+\begin{defn}
+    Диаграмму вида \eqref{10-03:becarre}, для которой выполняются вышеуказанные соотношения, называют \textit{диаграммой прямой суммы}.
+\end{defn}
+
+\begin{thm*}
+    Пусть $U_1, U_2, V$ --- $k$-модули, где $k$ --- коммутативное кольцо с единицей. Тогда $(U_1 \oplus U_2) \otimes_k V \simeq (U_1 \otimes_k V) \oplus (U_2 \otimes_k V)$.
+\end{thm*}
+
+\begin{proof}
+    Для $U_1 \oplus U_2$ рассмотрим диаграмму прямой суммы:
+    \begin{diagram}
+        U_1 & \pile{\rTo^{i_1} \\ \lTo_{p_1}} & U_1 \oplus U_2 & \pile{\lTo^{i_2} \\ \rTo_{p_2}} & U_2
+    \end{diagram}
+    Здесь: $$\begin{tabu}{cc}
+        i_1(u) \coloneqq (u, 0) & p_1(u_1, u_2) \coloneqq u_1 \\
+        i_2(u) \coloneqq (0, u) & p_2(u_1, u_2) \coloneqq u_2
+    \end{tabu}$$
+    Рассмотрим дополнительно: $$\begin{tabu}{cc}
+        \tilde{i_1} \coloneqq i_1 \otimes \id_V & \tilde{p_1} \coloneqq p_1 \otimes \id_V \\
+        \tilde{i_2} \coloneqq i_2 \otimes \id_V & \tilde{p_2} \coloneqq p_2 \otimes \id_V
+    \end{tabu}$$
+    и соответствующую диаграмму прямой суммы:
+    \begin{diagram}
+        U_1 \otimes V & \pile{\rTo^{\tilde{i_1}} \\ \lTo_{\tilde{p_1}}} & (U_1 \oplus U_2) \otimes V & \pile{\lTo^{\tilde{i_2}} \\ \rTo_{\tilde{p_2}}} & U_2 \otimes V
+    \end{diagram}
+    
+    Тогда $\tilde{p_1}\tilde{i_1} = (p_1 \otimes \id_V) \circ (i_1 \otimes \id_V) = p_1 i_1 \otimes \id_V = \id_{U_1} \otimes \id_V = \id_{U_1 \otimes V}$; аналогично $\tilde{p_2}\tilde{i_2} = \id_{U_2 \otimes V}$. Имеем $\tilde{i_1}\tilde{p_1} + \tilde{i_2}\tilde{p_2} = (i_1 \otimes \id_V) \circ (p_1 \otimes \id_V) + (i_2 \otimes \id_V) \circ (p_2 \otimes \id_V) = (i_1 p_1) \otimes \id_V + (i_2 p_2) \otimes \id_V = (i_1 p_1 + i_2 p_2) \otimes \id_V = \id_{U_1 \oplus U_2} \otimes \id_V = \id_{(U_1 \oplus U_2) \otimes V}$. Таким образом, последняя рассмотренная диаграмма действительно является диаграммой прямой суммы, и указанный изоморфизм доказан.
+\end{proof}
