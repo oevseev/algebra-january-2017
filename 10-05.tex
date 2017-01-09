@@ -1,0 +1,35 @@
+\section{Теорема об изоморфизме сопряженности}
+
+\begin{defn}
+    Пусть $k$ --- коммутативное кольцо с единицей, $U, V, W$ --- $k$ модули. Множество всех билинейных отображений $U \times V \to W$ будем обозначать $\Bi(U, V; W)$. На этом множестве введем структуру $k$-модуля через поточечное сложение и умножение на скаляр.
+\end{defn}
+
+\begin{thm*}
+    Пусть $k$ --- коммутативное кольцо с единицей, $U, V, W$ --- $k$-модули. Тогда существуют изоморфизмы $k$-модулей:
+    $$\lsub{k}{\hom (U \otimes_k V, W)} \stackrel{\lambda}{\to} \lsub{k}{\Bi(U, V, W)} \stackrel{\mu}{\to} \lsub{k}{\hom(U, \lsub{k}{\hom(V, W)})}$$
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        Построим $\lambda$. Пусть $g \in \hom(U \otimes V, W)$, $t \colon U \times V \to U \otimes V$ --- каноническое билинейное отображение. Рассмотрим следующую диаграмму:
+        \begin{diagram}
+            U \times V & & \rTo^t & & U \otimes V \\
+            & \rdDashto_{g \circ t} & & \ldTo_{g} & \\
+            & & W & &
+        \end{diagram}
+        Так как $t$ билинейно, а $g$ --- гомоморфизм, то $g \circ t$ билинейно. Положим $\lambda(g) \coloneqq g \circ t$. $\lambda$ обратимо по универсальному свойству тензорного произведения. Ясно, что $\lambda$ является $k$-гомоморфизмом, следовательно $\lambda$ --- изоморфизм.
+    \end{proofpart}
+
+    \begin{proofpart}
+        Построим $\mu$. Пусть $f \in \Bi(U, W; W)$. Положим $(\mu(f)(u))(v) \coloneqq f(u, v)$. $\mu(f)(u)$ и $\mu(f)$ являются $k$-гомоморфизмами вследствие билинейности $f$. Также ясно, что $\mu$ --- $k$-гомоморфизм. Рассмотрим $\nu \colon \hom(U, \hom(V, W)) \to \Bi(U, V; W)$, т.ч. $(\nu(h))(u, v) \coloneqq (h(u))(v)$. Ясно, что $\nu(h)$ билинейно, а $\nu$ является $k$-гомоморфизмом. Тогда:
+        \begin{align*}
+            (\nu \mu(f))(u, v) = ((\mu(f))(u))(v) = f(u, v) &\leadsto \nu \mu = \id_{\Bi(U, V; W)} \\
+            (\mu \nu(h))(u)(v) = (\nu(h))(u, v) = h(u)(v) &\leadsto \mu \nu = \id_{\hom(U, \hom(V, W))}
+        \end{align*}
+        и $\mu$ --- изоморфизм.
+    \end{proofpart}
+\end{proof}
+
+\begin{defn}
+    Отображение $\mu \lambda$ называется \textit{изоморфизмом сопряженности}.
+\end{defn}

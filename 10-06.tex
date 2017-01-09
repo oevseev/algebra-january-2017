@@ -1,0 +1,9 @@
+\section{Базис тензорного произведения линейных пространств}
+
+\begin{thm*}
+    $K$ --- поле, $U, V$ --- конечномерные линейные пространства. Пусть $B_1 = \family{u_i}{i=1}{m}$ и $B_2 = \family{v_i}{i=1}{n}$ --- базисы $U$ и $V$ соответственно. Тогда $B_1 \otimes B_2 \coloneqq \family{u_i \otimes v_j}{i=1..m,\ j=1..n}{}$ --- базис $U \otimes_K V$.
+\end{thm*}
+
+\begin{proof}
+    Известно, что $U \otimes V = \gen{K}{\{u \otimes v \mid u \in U, v \in V\}}$. Имеем $u \otimes v = \left(\sum_{i=1}^{m} \alpha_i u_i\right) \otimes \left(\sum_{j=1}^{n} \beta_j v_j \right) = \sum_{i,j=1}^{m,n} \alpha_i \beta_j (u_i \otimes v_j)$. Таким образом, $U \otimes V = \gen{K}{B_1 \otimes B_2}$. При этом известно, что $\dim \lsub{K}{(U \otimes_K V)} = mn = \#(B_1 \otimes B_2)$. Следовательно, $B_1 \otimes B_2$ --- базис.
+\end{proof}
