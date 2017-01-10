@@ -1,0 +1,45 @@
+\section{Дуальные пространства и тензорное произведение}
+
+\begin{thm*}
+    Пусть $U$ и $V$ --- конечномерные $K$-пространства. Тогда:
+    \begin{enumerate}
+        \item Существует изоморфизм $\sigma \colon U^* \otimes V^* \to (U \otimes V)^*$, т.ч. $\sigma(\varphi \otimes \psi)(u \otimes v) = \varphi(u) \psi(v)$.
+        \item Существует изоморфизм $\tau \colon U^* \otimes V \to \lsub{K}{\hom(U, V)}$, т.ч. $\tau(\varphi \otimes v)(u) = \varphi(u) \cdot v$.
+    \end{enumerate}
+\end{thm*}
+
+\begin{proof}
+    \begin{proofpart}
+        Пусть $\varphi \in U^*$, $\psi \in V^*$. Рассмотрим изображение $\tilde{\alpha}_{\phi,\psi} \colon U \times V \to K$, т.ч. $(u, v) \mapsto \varphi(u)\psi(v)$. Рассмотрим следующую диаграмму:
+        \begin{diagram}
+            U \times V & & \rTo^\otimes & & U \otimes V \\
+            & \rdTo_{\tilde{\alpha}_{\varphi,\psi}} & & \ldDashto_{\alpha_{\varphi, \psi}} \\
+            & & K & &
+        \end{diagram}
+        По универсальному свойству тензорного произведения $\exists! \alpha_{\varphi, \psi} \in (U \otimes V)^*$, т.ч. $u \otimes v \mapsto \tilde{\alpha}_{\varphi, \psi}(u, v) = \varphi(u) \psi(v)$.
+        
+        Введем отображение $\sigma_0 \colon U^* \times V^* \to (U \otimes V)^*$, т.ч. $(\varphi, \psi) \mapsto \alpha_{\varphi, \psi}$. Рассмотрим следующую диаграмму:
+        \begin{diagram}
+            U^* \times V^* & & \rTo^\otimes & & U^* \otimes V^* \\
+            & \rdTo_{\sigma_0} & & \ldDashto_{\sigma} \\
+            & & (U \otimes V)^* & &
+        \end{diagram}
+        Ясно, что $\exists! \sigma \colon U^* \otimes V^* \to (U \otimes V)^*$, т.ч. $\varphi \otimes \psi \mapsto \sigma_0(\varphi, \psi) = \alpha_{\varphi, \psi}$. Следовательно, $\sigma(\varphi \otimes \psi)(u \otimes v) = \alpha_{\varphi, \psi}(u \otimes v) = \tilde{\alpha}_{\varphi, \psi}(u, v) = \varphi(u)\psi(v)$.
+        
+        Покажем, что $\sigma$ --- эпиморфизм. Пусть $B_1 = \family{u_i}{i=1}{m}$ и $B_2 = \family{v_j}{j=1}{n}$ --- базисы $\lsub{K}{U}$ и $\lsub{K}{V}$, а $B_1^* = \family{\varphi_i}{i=1}{m}$ и $B_2^* = \family{\psi_j}{j=1}{n}$ --- базисы $\lsub{K}{U^*}$ и $\lsub{K}{V^*}$. Пусть $B_1 \otimes B_2$ --- базис $U \otimes V$. 
+        
+        Рассмотрим $B_1^* \otimes B_2^*$. Имеем $\sigma(\varphi_k \otimes \psi_l)(u_i \otimes v_j) = \varphi_k(u_i) \psi_l(v_j) = \delta_{ki} \delta_{lj} = \delta_{(i, j);(k, l)}$. Из этого следует, что $\sigma(B_1^* \otimes B_2^*)$ --- дуальный к $B_1 \otimes B_2$ базис. Тогда $\im \sigma \supset \gen{K}{\sigma(B_1^* \otimes B_2^*)} = (U \otimes V)^*$, т.е. $\sigma$ эпиморфно. Так как $\dim \lsub{K}{(U^* \otimes V^*)} = \dim \lsub{K}{(U \otimes V)^*}$, то $\sigma$ --- изоморфизм.
+    \end{proofpart}
+
+    \begin{proofpart}
+        Пусть $\varphi \in U^*$, $v \in V$. Рассмотрим отображение $\tilde{\tau} \colon U^* \times V \to \lsub{K}{\hom(U, V)}$, т.ч. $\tilde{\tau}(\varphi, v)(u) = \varphi(u) v$. Рассмотрим следующую диаграмму:
+        \begin{diagram}
+            U^* \times V & & \rTo^\otimes & & U^* \otimes V \\
+            & \rdTo_{\tilde{\tau}} & & \ldDashto_{\tau} & \\
+            & & \hom(U, V) & &
+        \end{diagram}
+        Видно, что $\exists! \tau \colon U^* \otimes V \to \hom(U, V)$, т.ч. $\tau(\varphi \otimes v) = \tilde{\tau}(\varphi, v)$. Покажем, что $\tau$ --- эпиморфизм. Пусть $f \in \hom(U, V)$. Воспользуемся базисом из предыдущего пункта. Пусть $[f]_{B,B'} = (\alpha_{ij})$. Тогда:
+        $$f(u_j) = \sum_{i} a_{ij} v_i = \sum_{i} a_{ij} \sum_{k} \varphi_k(u_j) v_i = \sum_{i,k} a_{ij} \tau(\varphi_k \otimes v_i)(u_i) = \tau\left(\sum_{i,k} a_{ij}(\varphi_k \otimes v_i)\right)(u_i)$$
+        Таким образом, $\tau$ --- эпиморфизм, а следовательно, и изоморфизм.
+    \end{proofpart}
+\end{proof}

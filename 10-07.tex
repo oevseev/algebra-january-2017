@@ -1,0 +1,64 @@
+\section{Кронекерово произведение матриц, связь с тензорным произведением линейных операторов. Кронекерово произведение матриц Адамара}
+
+\begin{defn}
+    Пусть $A = (a_{ij}) \in M_{m,n}(K)$, $C = (c_{ij}) \in M_{k,l}(K)$. \textit{Кронекерово произведение} $A$ и $C$ --- это матрица $A \otimes C \in M_{mn,kl}(K)$, допускающая разбиение на $k \times l$-блоки, т.ч. $A \otimes C = \family{B_{ij}}{i,j=1}{m,n}$, где $B_{ij} = a_{ij}C$. 
+\end{defn}
+
+\begin{rem}
+    Матрицу $A \otimes C$ можно явно представить в виде:
+    $$(A \otimes C)[i, j] = A\left[ \left\lfloor \frac{i-1}{k} \right\rfloor + 1,\ \left\lfloor \frac{j-1}{l} \right\rfloor + 1 \right] \cdot C\left[ i - k \cdot \left\lfloor \frac{i-1}{k} \right\rfloor,\ j - l \cdot \left\lfloor \frac{j-1}{l} \right\rfloor \right]$$
+    или
+    $$(A \otimes C)[i, j] = A[(i - 1) \divop k + 1, (j - 1) \divop l + 1] \cdot C[(i - 1) \modop k + 1, (j - 1) \modop l + 1]$$
+    где $a \divop b \coloneqq \left\lfloor \frac{a}{b} \right\rfloor$, $a \modop b \coloneqq a - b \cdot (a \divop b)$.
+\end{rem}
+
+\begin{thm}
+    Пусть $U$ и $V$ --- $K$-линейные пространства, $a$ и $c$ --- операторы на $U$ и $V$ соответственно. Пусть дополнительно $B = \family{u_i}{i=1}{m}$ и $B' = \family{v_j}{j=1}{n}$ --- базисы $\lsub{K}{U}$ и $\lsub{K}{V}$ соответственно. Положим $A = (a_{ij}) \coloneqq [a]_B$, $B = (b_{ij}) \coloneqq [c]_B$. Упорядочим $B \otimes B'$ по строкам: $((1, 1), \dots, (1, n), (2, 1), \dots, \dots, (m, n))$. Тогда $[a \otimes c]_{B \times B'} = A \otimes C$.
+\end{thm}
+
+\begin{proof}
+    Обозначим $B \otimes B' = \family{w_t}{t=1}{mn} = \family{u_i \otimes v_j}{i,j=1}{m,n}$. Заметим, что $i$ и $j$ можно выразить через $t$:
+    \begin{equation}\label{10-07:1}
+        i = \left\lfloor \frac{t-1}{n} \right\rfloor + 1, \quad
+        j = t - n \left\lfloor \frac{t-1}{n} \right\rfloor
+    \end{equation}
+    Имеем $(a \otimes c)(w_t) = (a \otimes c)(u_i \otimes v_j) = a(u_i) \otimes c(v_j) = \left(\sum_{k=1}^m a_{ki} u_k\right) \otimes \left(\sum_{l=1}^n c_{lj} v_l\right) = \sum_{k,l=1}^{m,n} a_{ki}c_{lj} (u_k \otimes v_l)$. Но $u_k \otimes v_l = w_s$, где $s$ удовлетворяет соотношениям:
+    \begin{equation}\label{10-07:2}
+        k = \left\lfloor \frac{s-1}{n} \right\rfloor + 1, \quad
+        l = s - n \left\lfloor \frac{s-1}{n} \right\rfloor
+    \end{equation}
+    Так, $([a \otimes c]_{B \otimes B'})[s, t] = a_{ki}c_{lj} \stackrel{\text{\eqref{10-07:1} и \eqref{10-07:2}}}{=} (A \otimes C)[s, t]$.
+\end{proof}
+
+\begin{defn}
+    $C \in M_n(\mathbb{Z})$ называется \textit{матрицей Адамара}, если она состоит из $\pm 1$ и $C^T C = nE_n$.
+\end{defn}
+
+\begin{exmpl}
+    \[
+    C = \begin{pmatrix}
+        1 &  1 \\
+        1 & -1
+    \end{pmatrix}, \qquad
+    C = \begin{pmatrix}
+        1 &  1 &  1 &  1 \\
+        1 & -1 &  1 & -1 \\
+        1 &  1 & -1 & -1 \\
+        1 & -1 & -1 &  1
+    \end{pmatrix}
+    \]
+\end{exmpl}
+
+\begin{thm}
+    Пусть $A$ и $B$ --- матрицы Адамара размеров $m$ и $n$ соответственно, тогда $A \otimes B$ --- матрица Адамара размера $mn$.
+\end{thm}
+
+\begin{proof}
+    Ясно, что $A \otimes B$ состоит из $\pm 1$. Она имеет вид:
+    $$A \otimes B = \begin{pmatrix}
+        a_{11} B & \cdots & a_{1m} B \\
+        \vdots   & \ddots & \vdots   \\
+        a_{m1} B & \cdots & a_{mm} B
+    \end{pmatrix}$$
+    При этом $((A \otimes B)^T (A \otimes B))\overbrace{[i, j]}^{\text{блок}} = \sum_{k=1}^m a_{ki} a_{kj} B^TB = (M^TM)[i, j] \cdot N^TN = m \delta_{ij} N^TN$, т.е. $(A \otimes B)^T(A \otimes B)$ имеет блочно-диагональную форму. При этому $(N^TN)[k, l] = n\delta_{kl}$, то есть каждый блок диагонален. Ясно, что каждый диагональный элемент имеет значение $mn$, и $A \otimes B$ --- матрица Адамара.
+\end{proof}

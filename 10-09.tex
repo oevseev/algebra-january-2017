@@ -1,0 +1,13 @@
+\section{Согласованные замены базисов в линейном пространстве и пространстве функционалов. Контраградиентная матрица}
+
+\begin{thm*}
+    Пусть $B_1 = \family{u_i}{i=1}{n}$ и $B_2 = \family{v_j}{j=1}{n}$ --- базисы $K$-пространства $L$, $B^*_1 = \family{\varphi^i}{i=1}{n}$ и $B^*_2 = \family{\psi^j}{j=1}{n}$ --- соответствующие дуальные базисы $L$. Пусть $B_1 \stackrel{C}{\leadsto} B_2$. Тогда $B_1^* \stackrel{C^{-1T}}{\leadsto} B_2^*$.
+\end{thm*}
+
+\begin{proof}
+    Докажем, что $B_2^* \stackrel{C^T}{\leadsto} B_1^*$. Пусть $B_2^* \stackrel{D = (d_{ij})}{\leadsto} B_1^*$. Тогда $\varphi^i(v_j) = \varphi^i\left(\sum_k c_{kj} u_k\right) = \sum_k c_{kj} \varphi^i(u_k) = c_{ij}$. С другой стороны, $\varphi^i(v_j) = \sum_l d_{li} \psi^l(v_j) = d_{ji}$, откуда $d_{ij} = c_{ji}$ и $D = C^T$.
+\end{proof}
+
+\begin{defn}
+    Для $C \in M_n(K)^*$ матрица $\hat{C} \coloneqq C^{-1T}$ называется \textit{контраградиентной} к $C$.
+\end{defn}
