@@ -1,0 +1,62 @@
+\section{Координаты тензора, классическое определение тензора}
+
+\begin{defn}
+    $L$ --- конечномерное $K$-пространство, $(p, q) \in \mathbb{Z}_+^2 \setminus \{(0, 0)\}$. Положим $T_p^q \coloneqq T_p^q(L) \coloneqq (L^*)^{\otimes p} \otimes L^{\otimes q}$. Элементы пространства $T_p^q$ называются \textit{$p$ раз ковариантными, $q$ раз контравариантными тензорами}. Число $p+q$ называется \textit{валентностью} $T \in T_p^q$. 
+\end{defn}
+
+\begin{rem}
+    Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item $\dim \lsub{K}{T_p^q(L)} = (\dim \lsub{K}{L})^{p+q}$.
+        \item Существует цепочка изоморфизмов:
+        $$T_p^q(L) \stackrel{f}{\longrightarrow} (L^*)^{\otimes p} \otimes (L^{**})^{\otimes q} \stackrel{\sigma}{\longrightarrow} (L^{\otimes p} \otimes (L^*)^{\otimes q})^* \stackrel{\lambda}{\longrightarrow} \lsub{K}{\Poly(L^p, (L^*)^q; K)}$$
+        такая, что:
+        \begin{enumerate}[label=\arabic*.]
+            \item $f(\varphi_1 \otimes \ldots \otimes \varphi_p \otimes u_1 \otimes \ldots \otimes u_q) = \varphi_1 \otimes \ldots \otimes \varphi_p \otimes \delta_{u_1} \otimes \ldots \otimes \delta_{u_q}$, где $\delta_{u_i}(\varepsilon) = \varepsilon(u_1)$.
+            \item $\sigma(\varphi_1 \otimes \ldots \otimes \varphi_p \otimes \psi_1 \otimes \ldots \otimes \psi_q)(u_1 \otimes \ldots \otimes u_p \otimes g_1 \otimes \ldots \otimes g_q) = \varphi_1(u_1) \cdot \ldots \cdot \varphi_p(u_p) \cdot \psi_1(g_1) \cdot \ldots \cdot \psi_q(g_q)$.
+            \item $\lambda(\varepsilon)(u_1, \ldots, u_p, \varphi_1, \ldots, \varphi_q) = \varepsilon(u_1 \otimes \ldots \otimes u_p \otimes \varphi_1 \otimes \ldots \otimes \varphi_q)$.
+        \end{enumerate}
+    
+        Положим $\theta = \lambda \sigma f$. Тогда справедлива формула:
+        \begin{align*}
+            &\phantom{{}={}} \theta(\varphi_1 \otimes \ldots \otimes \varphi_p \otimes u_1 \otimes \ldots \otimes u_q)(\tilde{u_1}, \ldots, \tilde{u_p}, \tilde{\varphi_1}, \ldots, \tilde{\varphi_q}) \\
+            &= \lambda \circ \sigma(\varphi_1 \otimes \ldots \otimes \varphi_p \otimes \delta_{u_1} \otimes \ldots \otimes \delta_{u_j})(\tilde{u_1}, \ldots, \tilde{u_p}, \tilde{\varphi_1}, \ldots, \tilde{\varphi_q}) \\
+            &= \sigma(\varphi_1 \otimes \ldots \otimes \varphi_p \otimes \delta_{u_1} \otimes \ldots \otimes \delta_{u_q})(\tilde{u_1} \otimes \ldots \otimes \tilde{u_p} \otimes \tilde{\varphi_1} \ldots \otimes \tilde{\varphi_q}) \\
+            &= \varphi_1(\tilde{u_1}) \cdot \ldots \cdot \varphi_p(\tilde{u_p}) \cdot \delta_{u_1}(\tilde{\varphi_1}) \cdot \ldots \cdot \delta_{u_q}(\tilde{\varphi_q}) \\
+            &= \varphi_1(\tilde{u_1}) \cdot \ldots \cdot \varphi_p(\tilde{u_p}) \cdot \tilde{\varphi_1}(u_1) \cdot \ldots \cdot \tilde{\varphi_q}(u_q)
+        \end{align*}
+    \end{enumerate}
+\end{rem}
+
+\begin{defn}
+    Пусть $L$ --- $K$-линейное пространство, $T \in T_p^q(L)$. Пусть $B = \family{u_i}{i=1}{n}$ --- базис $\lsub{K}{L}$, $B^* = \family{\varphi^i}{i=1}{n}$ --- дуальный к нему. Положим $\tilde{B} \coloneqq (B^*)^{\otimes p} \otimes B^{\otimes q}$ --- базис $\lsub{K}{T_p^q(L)}$. Рассмотрим разложение $T$ по базисным тензорным произведениям из $\tilde{B}$:
+    $$T = T_{i_1, \dots, i_p}^{j_1, \dots, j_p} \cdot \varphi^{i_1} \otimes \ldots \otimes \varphi^{i_p} \otimes u_{j_1} \otimes \ldots \otimes u_{j_q}$$
+    Набор коэффициентов $\{T_{i_1, \dots, i_p}^{j_1, \dots, j_q}\}$ называется \textit{координатами (компонентами)} тензора $T$ относительно базиса $B$.
+\end{defn}
+
+\begin{thm*}
+    Пусть $L$ --- $K$-пространство, $B_1 = \family{u_1}{i=1}{n}$ и $B_2 = \family{v_i}{i=1}{n}$ --- базисы $\lsub{K}{L}$. Пусть $B \stackrel{C}{\leadsto} B'$, $C = (c_j^i)$, $\hat{C} = (\hat{c}_i^j)$. Предположим $\{T_{i_1, \dots, i_p}^{j_1, \dots, j_q}\}$ и $P_{r_1, \dots, r_p}^{s_1, \dots, s_q}$ --- компоненты $T \in T_p^q(L)$ относительно $B_1$ и $B_2$ соответственно. Тогда:
+    $$P_{r_1, \dots, r_p}^{s_1, \dots, s_q} = T_{i_1, \dots, i_p}^{j_1, \dots, j_q} \cdot c_{r_1}^{i_1} \cdot \ldots \cdot c_{r_p}^{i_p} \cdot \hat{c}_{j_1}^{s_1} \cdot \ldots \cdot \hat{c}_{j_q}^{s_q}$$
+\end{thm*}
+
+\begin{proof}
+    Имеем $\hat{c}_k^j c_j^i = \sum_j \hat{C}[k, j] C[i, j] = \sum_j C^{-1}[j, k] C[i, j] = (C^{-1}C)[k, i] = \delta_k^i$. В то же время, $v_j = c_j^i u_i$ по определению $C$. Имеем:
+    \begin{equation}\label{10-10:1}
+        \hat{c}_k^j v_j = \hat{c}_k^j v_j = \hat{c}_k^j c_j^i u_i = \delta_k^i u_i = u_k
+    \end{equation}
+    
+    Пусть базисы $B_1^* = \family{\varphi^j}{j=1}{n}$ и $B_2^* = \family{\psi^j}{j=1}{n}$ --- дуальные к $B_1$ и $B_2$ соответственно. По теореме о согласованной замене базисов $\lsub{K}{L}$ и $\lsub{K}{L^*}$ имеем $\psi^j = \hat{c}_i^j \varphi^{i}$. В то же время, $c_j^k \hat{c}_i^j = \sum_j C[k, j] \hat{C}[i, j] = \sum_j C[k, j] C^{-1}[j, i] = (CC^{-1})[k,i] = \delta_i^k$. Тогда:
+    \begin{equation}\label{10-10:2}
+        c_j^k \psi^j = c_j^k \hat{c}_i^j \varphi^i = \delta_i^k \varphi^i = \varphi^k
+    \end{equation}
+    
+    Рассмотрим разложение $T$ по базису $B_1$:
+    \begin{equation}\label{10-10:3}
+        T = T_{i_1, \dots, i_p}^{j_1, \dots, j_p} \cdot \varphi^{i_1} \otimes \ldots \otimes \varphi^{i_p} \otimes u_{j_1} \otimes \ldots \otimes u_{j_q}
+    \end{equation}
+    Подставим формулы \eqref{10-10:1} и \eqref{10-10:2} в \eqref{10-10:3}. Тогда
+    \begin{equation}\label{10-10:4}
+       T = T_{i_1, \dots, i_p}^{j_1, \dots, j_p} \cdot (c_{r_1}^{i_1} \psi^{r_1}) \otimes \ldots \otimes (c_{r_p}^{i_p} \psi^{r_p}) \otimes (\hat{c}_{j_1}^{s_1} v_{s_1}) \otimes \ldots \otimes (\hat{c}_{j_q}^{s_q} v_{s_q})
+    \end{equation}
+    откуда искомое равенство ясно по полилинейности.
+\end{proof}
